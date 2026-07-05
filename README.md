@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Kılınç Teknomarket — SEO-first, mobil-first, conversion-focused yerel işletme web sitesi. Mimari ve içerik kuralları için [CLAUDE.md](./CLAUDE.md) ve [docs/](./docs) klasörüne bakın.
 
-## Getting Started
-
-First, run the development server:
+## Geliştirme
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) adresini açın.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Doğrulama:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npx tsc --noEmit
+npx eslint .
+npm run build
+```
 
-## Learn More
+## Ortam Değişkenleri
 
-To learn more about Next.js, take a look at the following resources:
+`.env.example` dosyasını `.env.local` olarak kopyalayın:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+cp .env.example .env.local
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Değişken | Açıklama |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Sitenin canlı domain'i. Canonical URL, Open Graph/Twitter metadata, `sitemap.xml` ve `robots.txt` bu değeri kullanır (bkz. `src/lib/seo.ts`). |
 
-## Deploy on Vercel
+## ⚠️ Canlıya Almadan Önce — Tek Blokaj: Domain
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Site içeriği ve işletme verileri (telefon, WhatsApp, çalışma saatleri, Google
+Maps, Google Review, Instagram) **tamamlandı**. Canlıya almadan önce yapılması
+gereken tek şey **gerçek domain'i bağlamak**:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`src/lib/seo.ts` içindeki `siteUrl`, `NEXT_PUBLIC_SITE_URL` env değişkeni set
+edilmezse `https://www.kilinc-teknomarket.com` placeholder'ına düşer. Bu,
+geliştirmeyi engellemeyen bir tercih ama **canlıya almadan önce mutlaka gerçek
+domain ile değiştirilmelidir** — aksi halde canonical URL'ler, Open Graph
+linkleri ve sitemap yanlış domain'i işaret eder.
+
+Yapılması gereken:
+
+1. Gerçek domain'i Vercel'de (veya kullanılan platformda) bu projeye bağlayın.
+2. Deploy platformunda `NEXT_PUBLIC_SITE_URL` env değişkenini gerçek domain ile
+   set edin (örn. `https://www.kilinc-teknomarket.com`).
+3. `npm run build` sonrası `/sitemap.xml` ve sayfa kaynağındaki
+   `<link rel="canonical">` etiketlerinin doğru domain'i gösterdiğini kontrol
+   edin.
+
+### Opsiyonel: kalan tek veri alanı
+
+`src/lib/data/business.ts` içinde `geo` (enlem/boylam) hâlâ `null`. Google
+Business Profile'dan alınıp girilirse LocalBusiness schema'ya `geo`
+koordinatı eklenir — SEO açısından faydalı ama zorunlu değil, site bu alan
+olmadan da tam işlevsel.
+
+## Deploy
+
+Bu proje [Vercel](https://vercel.com/new) için hazırlanmıştır:
+
+1. Repository'yi Vercel'e bağlayın.
+2. `NEXT_PUBLIC_SITE_URL` env değişkenini Production/Preview için ayarlayın.
+3. Deploy edin.
+4. Deploy sonrası: `/sitemap.xml`, `/robots.txt`, ve birkaç sayfanın
+   `<link rel="canonical">` etiketini gerçek domain ile kontrol edin.
+5. Google Search Console'a domain'i ekleyip sitemap'i submit edin (sitemap
+   9 sayfa içerir; `/yorum-birak` bilinçli olarak `noindex` ve sitemap dışı
+   tutulmuştur).
+
+## Sprint 7B — Deploy Öncesi Kalite Kontrolü (tamamlandı)
+
+Tüm 10 sayfa (`/`, 5 servis sayfası, `/urunler`, `/hakkimizda`, `/iletisim`,
+`/yorum-birak`) tek tek denetlendi: her sayfada tek H1, benzersiz
+title/description/canonical/OpenGraph/Twitter metadata, doğru JSON-LD
+(Organization, LocalBusiness, Service, BreadcrumbList, FAQPage). Tüm CTA'lar
+(WhatsApp, Hemen Ara, Google'da Aç, Yol Tarifi, Google Yorum, Instagram)
+gerçek tıklama ile test edildi. Playwright ile masaüstü + mobilde görsel
+kontrol ve konsol hatası taraması yapıldı — hiçbir sayfada yatay taşma veya
+konsol hatası yok.
+
+## Yapı
+
+- Next.js App Router + TypeScript + Tailwind CSS + shadcn/ui
+- Veri katmanı: `src/lib/data/` (business, services, products, faq — tek
+  kaynak, TODO'lar veri eksikliklerini işaretler)
+- SEO: `src/lib/seo.ts` (metadata helper) + `src/lib/schema/` (JSON-LD
+  builder'lar) + `src/app/sitemap.ts` + `src/app/robots.ts`
