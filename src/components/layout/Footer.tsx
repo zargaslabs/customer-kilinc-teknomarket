@@ -115,6 +115,20 @@ export function Footer() {
           </p>
         </div>
       </div>
+
+      <div className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-4 text-center text-xs text-slate-500 sm:px-6">
+          Designed &amp; Developed by{" "}
+          <a
+            href="https://zargaslab.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-slate-400 transition-colors hover:text-white"
+          >
+            Zargas Labs
+          </a>
+        </div>
+      </div>
     </footer>
   )
 }
