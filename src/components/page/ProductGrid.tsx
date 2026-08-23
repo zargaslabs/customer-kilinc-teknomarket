@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import { products, productsWhatsAppMessage } from "@/lib/data/products"
+import { products, productsWithPhotos, productsWhatsAppMessage } from "@/lib/data/products"
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton"
 
 export function ProductGrid() {
@@ -23,25 +23,28 @@ export function ProductGrid() {
           ))}
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:max-w-md">
-          <div className="relative aspect-4/3 overflow-hidden rounded-xl ring-1 ring-foreground/10">
-            <Image
-              src="/images/store/kilinc-teknomarket-telefon-kiliflari.png"
-              alt="Kılınç Teknomarket telefon kılıfı ve aksesuar reyonu"
-              fill
-              sizes="(min-width: 640px) 220px, 45vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="relative aspect-4/3 overflow-hidden rounded-xl ring-1 ring-foreground/10">
-            <Image
-              src="/images/store/kilinc-teknomarket-bilgisayar-aksesuarlari.png"
-              alt="Kılınç Teknomarket bilgisayar aksesuarları reyonu"
-              fill
-              sizes="(min-width: 640px) 220px, 45vw"
-              className="object-cover"
-            />
-          </div>
+        {/* Müşteriden gelen gerçek reyon fotoğrafları. Yalnızca fotoğrafı
+            çekilmiş kategoriler burada görünür (bkz. productsWithPhotos). */}
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {productsWithPhotos.map((product) => (
+            <div
+              key={product.label}
+              className="overflow-hidden rounded-xl border border-border bg-card"
+            >
+              <div className="relative aspect-3/4">
+                <Image
+                  src={product.image!}
+                  alt={product.imageAlt!}
+                  fill
+                  sizes="(min-width: 1024px) 350px, (min-width: 640px) 45vw, 90vw"
+                  className="object-cover"
+                />
+              </div>
+              <p className="p-3 text-sm font-medium text-foreground">
+                {product.label}
+              </p>
+            </div>
+          ))}
         </div>
 
         <WhatsAppButton

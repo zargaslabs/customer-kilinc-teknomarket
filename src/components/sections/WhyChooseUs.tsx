@@ -70,8 +70,8 @@ export function WhyChooseUs() {
 
         <div className="relative aspect-3/4 overflow-hidden rounded-2xl ring-1 ring-foreground/10 lg:aspect-square">
           <Image
-            src="/images/store/kilinc-teknomarket-magaza-dis-cephe-genis.png"
-            alt="Kılınç Teknomarket Beyoğlu mağaza geniş dış cephe görünümü"
+            src="/images/store/kilinc-teknomarket-magaza-beyoglu.png"
+            alt="Kılınç Teknomarket Beyoğlu mağazası"
             fill
             sizes="(min-width: 1024px) 480px, 100vw"
             className="object-cover"

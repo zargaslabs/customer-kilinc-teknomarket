@@ -121,9 +121,8 @@ export const services: Service[] = [
       title: "Beyoğlu Uydu Kurulumu ve Çanak Anten Servisi",
       description:
         "Kılınç Teknomarket, Beyoğlu ve Kasımpaşa'da çanak anten kurulumu, uydu sistemleri, merkezi uydu sistemi, uydu arıza servisi ve TV kanal ayarı hizmeti sunar.",
-      image: "/images/store/kilinc-teknomarket-magaza-dis-cephe-genis.png",
-      imageAlt:
-        "Kılınç Teknomarket mağaza geniş dış cephe görünümü, uydu ve çanak anten hizmeti",
+      image: "/images/services/satellite/kilinc-teknomarket-uydu-montaji-beyoglu.png",
+      imageAlt: "Kılınç Teknomarket Beyoğlu uydu ve çanak anten montajı",
     },
     seo: {
       title: "Uydu Kurulumu ve Çanak Anten Servisi Beyoğlu",

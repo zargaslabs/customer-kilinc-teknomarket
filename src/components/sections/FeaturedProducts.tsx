@@ -1,7 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { featuredProducts, productsWhatsAppMessage } from "@/lib/data/products"
+import {
+  featuredProducts,
+  homepageProductPhotos,
+  productsWhatsAppMessage,
+} from "@/lib/data/products"
 import { Button } from "@/components/ui/button"
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton"
 
@@ -37,24 +41,20 @@ export function FeaturedProducts() {
         </div>
 
         <div className="mt-8 grid grid-cols-2 gap-4 sm:max-w-md">
-          <div className="relative aspect-4/3 overflow-hidden rounded-xl ring-1 ring-foreground/10">
-            <Image
-              src="/images/store/kilinc-teknomarket-telefon-kiliflari.png"
-              alt="Kılınç Teknomarket telefon kılıfı ve aksesuar ürünleri"
-              fill
-              sizes="(min-width: 640px) 220px, 45vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="relative aspect-4/3 overflow-hidden rounded-xl ring-1 ring-foreground/10">
-            <Image
-              src="/images/store/kilinc-teknomarket-bilgisayar-aksesuarlari.png"
-              alt="Kılınç Teknomarket bilgisayar aksesuarları"
-              fill
-              sizes="(min-width: 640px) 220px, 45vw"
-              className="object-cover"
-            />
-          </div>
+          {homepageProductPhotos.map((product) => (
+            <div
+              key={product.label}
+              className="relative aspect-3/4 overflow-hidden rounded-xl ring-1 ring-foreground/10"
+            >
+              <Image
+                src={product.image!}
+                alt={product.imageAlt!}
+                fill
+                sizes="(min-width: 640px) 220px, 45vw"
+                className="object-cover"
+              />
+            </div>
+          ))}
         </div>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">

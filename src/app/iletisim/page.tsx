@@ -38,8 +38,8 @@ export default function IletisimPage() {
         breadcrumbItems={breadcrumbItems}
         title="Bize Ulaşın"
         description="Beyoğlu/Kasımpaşa'daki mağazamıza WhatsApp, telefon veya yol tarifiyle kolayca ulaşabilirsiniz."
-        image="/images/store/kilinc-teknomarket-magaza-dis-cephe.png"
-        imageAlt="Kılınç Teknomarket Beyoğlu mağaza dış cephesi"
+        image="/images/store/kilinc-teknomarket-magaza-beyoglu.png"
+        imageAlt="Kılınç Teknomarket Beyoğlu mağazası"
       >
         <WhatsAppButton size="lg" />
       </PageHero>
