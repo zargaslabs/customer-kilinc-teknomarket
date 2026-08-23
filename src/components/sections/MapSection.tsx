@@ -6,11 +6,14 @@ import {
   getGoogleMapsEmbedUrl,
   getGoogleMapsSearchUrl,
   getPhoneDisplay,
+  getPhoneHref,
   getWorkingHoursDisplay,
 } from "@/lib/data/business"
 import { Button } from "@/components/ui/button"
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton"
+import { CallButton } from "@/components/cta/CallButton"
 import { ReviewButton } from "@/components/cta/ReviewButton"
+import { InstagramIcon } from "@/components/icons/InstagramIcon"
 
 export function MapSection() {
   return (
@@ -32,12 +35,35 @@ export function MapSection() {
             </p>
             <p className="flex items-start gap-2.5 text-foreground/80">
               <Phone className="mt-0.5 size-5 shrink-0 text-blue-600" />
-              {getPhoneDisplay() ?? "Telefon numarası yakında eklenecek"}
+              {business.phone ? (
+                <a
+                  href={getPhoneHref()}
+                  className="transition-colors hover:text-blue-600"
+                >
+                  {getPhoneDisplay()}
+                </a>
+              ) : (
+                "Telefon numarası yakında eklenecek"
+              )}
             </p>
+            {business.instagramUrl && (
+              <p className="flex items-start gap-2.5 text-foreground/80">
+                <InstagramIcon className="mt-0.5 size-5 shrink-0 text-blue-600" />
+                <a
+                  href={business.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-blue-600"
+                >
+                  {business.instagramHandle ?? "Instagram"}
+                </a>
+              </p>
+            )}
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <WhatsAppButton />
+            <WhatsAppButton size="lg" />
+            <CallButton size="lg" />
             <Button
               variant="outline"
               size="lg"

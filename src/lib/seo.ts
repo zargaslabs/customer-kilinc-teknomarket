@@ -11,7 +11,7 @@ export const siteUrl = (
 
 export const siteConfig = {
   name: business.name,
-  defaultTitle: `${business.name} | Beyoğlu Teknoloji Marketi ve Teknik Servis`,
+  defaultTitle: `${business.name} | Beyoğlu Uydu, Çanak Anten ve Teknik Servis`,
   description: business.description,
   url: siteUrl,
   locale: "tr_TR",

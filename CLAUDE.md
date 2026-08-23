@@ -176,11 +176,30 @@ Service area:
 
 Istanbul European Side
 
-Main local keywords:
+Working hours:
 
+Her gün 08:00 - 21:00
+
+Instagram handle (must stay exactly as the business wrote it, it is an account
+address — the "Kılınç Teknomarket" spelling rule does not apply here):
+
+Kilinc_tekno_market
+
+Main local keywords.
+
+The business explicitly wants to rank for "uydu" and "anten" searches, so these
+come first:
+
+- Beyoğlu uydu servisi
+- Beyoğlu çanak anten
+- çanak anten kurulumu Beyoğlu
+- uydu kurulumu Beyoğlu
+- Kasımpaşa uydu servisi
+- Kasımpaşa çanak anten
+- uydu arıza servisi
+- anten kurulumu
 - telefon tamiri Beyoğlu
 - telefon tamiri Kasımpaşa
-- uydu kurulumu Beyoğlu
 - kamera sistemi kurulumu Beyoğlu
 - bilgisayar tamiri Beyoğlu
 - laptop tamiri Beyoğlu

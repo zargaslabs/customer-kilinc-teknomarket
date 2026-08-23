@@ -1,5 +1,6 @@
 import { business, type WorkingHours } from "@/lib/data/business"
-import { siteConfig } from "@/lib/seo"
+import { services } from "@/lib/data/services"
+import { absoluteUrl, siteConfig } from "@/lib/seo"
 
 const schemaDayOfWeek: Record<WorkingHours["day"], string> = {
   Pazartesi: "https://schema.org/Monday",
@@ -18,6 +19,7 @@ export function localBusinessSchema() {
     name: business.name,
     description: business.description,
     url: siteConfig.url,
+    image: absoluteUrl(siteConfig.defaultImage),
     address: {
       "@type": "PostalAddress",
       streetAddress: business.address.streetAddress,
@@ -43,5 +45,20 @@ export function localBusinessSchema() {
         closes: hours.closes,
       })),
     }),
+    // İşletmenin sunduğu ana hizmetler. services dizisinden üretilir, böylece
+    // hizmet eklendiğinde/çıkarıldığında schema kendiliğinden güncel kalır.
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `${business.name} Hizmetleri`,
+      itemListElement: services.map((service) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: service.title,
+          description: service.summary,
+          url: absoluteUrl(`/${service.slug}`),
+        },
+      })),
+    },
   }
 }

@@ -1,5 +1,12 @@
 import { services } from "@/lib/data/services"
+import { productsHighlight } from "@/lib/data/products"
 import { ServiceCard } from "@/components/sections/ServiceCard"
+
+// Gerçek hizmet sayfaları + ürünler kartı. Ürünler kartı bilinçli olarak
+// services dizisine eklenmez (sitemap ve servis şeması yalnızca hizmetleri
+// kapsar), ama kullanıcı ana sayfada tüm alanları tek bakışta görsün diye
+// aynı kart bileşeniyle burada gösterilir.
+const cards = [...services, productsHighlight]
 
 export function ServiceGrid() {
   return (
@@ -10,12 +17,14 @@ export function ServiceGrid() {
             Hizmetlerimiz
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Beyoğlu ve çevresinde ihtiyacınız olan tüm teknik servisler tek adreste.
+            Uydu ve çanak anten kurulumundan telefon, bilgisayar, kamera ve
+            elektrik hizmetlerine kadar Beyoğlu ve çevresinde ihtiyacınız olan
+            her şey tek adreste.
           </p>
         </div>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
+          {cards.map((service) => (
             <ServiceCard key={service.slug} service={service} />
           ))}
         </div>

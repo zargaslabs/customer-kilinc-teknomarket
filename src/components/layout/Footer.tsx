@@ -50,7 +50,9 @@ export function Footer() {
               className="mt-5 inline-flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
             >
               <InstagramIcon className="size-5" />
-              Instagram&apos;da Takip Edin
+              {business.instagramHandle
+                ? `Instagram: ${business.instagramHandle}`
+                : "Instagram'da Takip Edin"}
             </a>
           )}
         </div>

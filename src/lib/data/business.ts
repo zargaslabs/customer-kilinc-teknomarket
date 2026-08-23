@@ -12,12 +12,12 @@ export type WorkingHours = {
   closes: string
 }
 
-const dailyHours = { opens: "08:30", closes: "21:00" }
+const dailyHours = { opens: "08:00", closes: "21:00" }
 
 export const business = {
   name: "Kılınç Teknomarket",
   description:
-    "Kılınç Teknomarket; telefon tamiri, bilgisayar servisi, uydu kurulumu, kamera sistemleri ve teknoloji ürünleri için Beyoğlu merkezli güvenilir teknoloji çözüm noktasıdır.",
+    "Kılınç Teknomarket; uydu ve çanak anten kurulumu, TV, telefon ve bilgisayar teknik servisi, kamera sistemleri, elektrik-internet arızaları ve teknoloji ürünleri için Beyoğlu merkezli güvenilir çözüm noktasıdır.",
 
   address: {
     streetAddress: "Camiikebir, Kızılay Meydanı Cd. No:9",
@@ -36,7 +36,7 @@ export const business = {
   // CTA'ları bu değeri kullanır.
   whatsapp: "905357695463" as string | null,
 
-  // Haftalık çalışma saatleri: Pazartesi - Pazar, 08:30 - 21:00.
+  // Haftalık çalışma saatleri: Pazartesi - Pazar, 08:00 - 21:00.
   workingHours: [
     { day: "Pazartesi", ...dailyHours },
     { day: "Salı", ...dailyHours },
@@ -47,9 +47,13 @@ export const business = {
     { day: "Pazar", ...dailyHours },
   ] as WorkingHours[] | null,
 
-  // TODO (Google Business Profile'dan alınacak): Mağazanın enlem/boylam
-  // koordinatı. LocalBusiness schema'daki "geo" alanı için kullanılır.
-  geo: null as { latitude: number; longitude: number } | null,
+  // Mağazanın enlem/boylam koordinatı. İşletmenin kendi Google Maps yer
+  // linkinden (bkz. googleMapsUrl) alınmıştır. LocalBusiness schema'daki
+  // "geo" alanı için kullanılır.
+  geo: { latitude: 41.0341314, longitude: 28.9661493 } as {
+    latitude: number
+    longitude: number
+  } | null,
 
   // Google Business Profile "yorum bırak" kısayol linki. /yorum-birak
   // sayfası ve tüm "Google'da Yorum Yap" CTA'ları bu değeri kullanır.
@@ -58,6 +62,10 @@ export const business = {
   // Instagram profil linki. Organization schema'daki "sameAs" alanı için
   // kullanılır.
   instagramUrl: "https://www.instagram.com/kilinc_tekno_market/" as string | null,
+
+  // Instagram kullanıcı adı (işletmenin bildirdiği yazımıyla). Bu bir hesap
+  // adresidir; işletme adı yazım kuralından bağımsız olarak birebir korunur.
+  instagramHandle: "Kilinc_tekno_market" as string | null,
 
   // İşletmenin gerçek Google Maps "yer" (place) linki. "Google'da Aç"
   // butonu bu değeri kullanır (bkz. getGoogleMapsSearchUrl).
@@ -99,7 +107,7 @@ export function getPhoneDisplay() {
   return match ? `${match[1]} ${match[2]} ${match[3]} ${match[4]}` : local
 }
 
-// Tüm günler aynı saatlerdeyse "Her gün 08:30 - 21:00" gibi tek satırlık
+// Tüm günler aynı saatlerdeyse "Her gün 08:00 - 21:00" gibi tek satırlık
 // okunabilir bir özet üretir.
 export function getWorkingHoursDisplay() {
   const hours = business.workingHours

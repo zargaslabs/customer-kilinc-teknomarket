@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "İletişim",
     description:
-      "Kılınç Teknomarket'e Beyoğlu/Kasımpaşa'daki mağazamızdan, WhatsApp'tan veya telefonla ulaşabilirsiniz. Adres, yol tarifi ve çalışma saatleri için tıklayın.",
+      "Kılınç Teknomarket'e Beyoğlu/Kasımpaşa'daki mağazamızdan, WhatsApp'tan veya telefonla ulaşabilirsiniz. Adres, yol tarifi ve çalışma saatleri (her gün 08:00 - 21:00) için tıklayın.",
     path: "/iletisim",
   });
 }

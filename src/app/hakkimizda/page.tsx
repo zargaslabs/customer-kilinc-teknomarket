@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "Hakkımızda",
     description:
-      "Kılınç Teknomarket, Beyoğlu/Kasımpaşa merkezli yerel bir teknoloji marketi ve teknik servistir. Telefon tamiri, bilgisayar servisi, uydu kurulumu, kamera sistemleri ve teknoloji ürünleri sunuyoruz.",
+      "Kılınç Teknomarket, Beyoğlu/Kasımpaşa merkezli yerel bir teknoloji marketi ve teknik servistir. Uydu ve çanak anten kurulumu, telefon ve bilgisayar servisi, kamera sistemleri ile teknoloji ürünleri sunuyoruz.",
     path: "/hakkimizda",
   });
 }
@@ -32,7 +32,7 @@ export default function HakkimizdaPage() {
       <PageHero
         breadcrumbItems={breadcrumbItems}
         title="Beyoğlu'nun Yerel Teknoloji Çözüm Ortağı"
-        description="Kılınç Teknomarket olarak Beyoğlu/Kasımpaşa'da telefon tamiri, bilgisayar servisi, uydu kurulumu, kamera sistemleri ve teknoloji ürünleri alanında güvenilir hizmet veriyoruz."
+        description="Kılınç Teknomarket olarak Beyoğlu/Kasımpaşa'da uydu ve çanak anten kurulumu, telefon ve bilgisayar servisi, kamera sistemleri ve teknoloji ürünleri alanında güvenilir hizmet veriyoruz."
         image="/images/store/kilinc-teknomarket-magaza-dis-cephe.png"
         imageAlt="Kılınç Teknomarket Beyoğlu mağaza dış cephesi"
       >

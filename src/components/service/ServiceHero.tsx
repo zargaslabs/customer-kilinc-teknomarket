@@ -3,6 +3,7 @@ import Image from "next/image"
 import { getServiceWhatsAppMessage, type Service } from "@/lib/data/services"
 import { PageBreadcrumbs, type BreadcrumbEntry } from "@/components/seo/PageBreadcrumbs"
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton"
+import { CallButton } from "@/components/cta/CallButton"
 
 export function ServiceHero({
   service,
@@ -33,6 +34,10 @@ export function ServiceHero({
             <WhatsAppButton
               size="lg"
               message={getServiceWhatsAppMessage(service)}
+            />
+            <CallButton
+              size="lg"
+              className="border-white/20 bg-transparent text-white hover:bg-white/10"
             />
           </div>
         </div>

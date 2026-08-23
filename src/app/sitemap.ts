@@ -9,10 +9,11 @@ import { absoluteUrl } from "@/lib/seo"
 // hazır.
 const routes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
+  // İşletmenin öne çıkarmak istediği hizmet: uydu ve çanak anten.
+  { path: "/uydu-sistemleri", priority: 0.9, changeFrequency: "monthly" },
   { path: "/telefon-tamiri", priority: 0.8, changeFrequency: "monthly" },
   { path: "/bilgisayar-tamiri", priority: 0.8, changeFrequency: "monthly" },
   { path: "/kamera-sistemleri", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/uydu-sistemleri", priority: 0.8, changeFrequency: "monthly" },
   { path: "/elektrik-internet-hizmetleri", priority: 0.8, changeFrequency: "monthly" },
   { path: "/urunler", priority: 0.6, changeFrequency: "monthly" },
   { path: "/hakkimizda", priority: 0.5, changeFrequency: "yearly" },

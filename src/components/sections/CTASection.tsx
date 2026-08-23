@@ -1,5 +1,9 @@
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton"
+import { CallButton } from "@/components/cta/CallButton"
 import { ReviewButton } from "@/components/cta/ReviewButton"
+
+const darkOutlineClass =
+  "border-white/20 bg-transparent text-white hover:bg-white/10"
 
 type CTASectionProps = {
   title?: string
@@ -10,7 +14,7 @@ type CTASectionProps = {
 
 export function CTASection({
   title = "Hemen Teknik Destek Alın",
-  description = "Telefon tamiri, bilgisayar servisi, uydu kurulumu veya kamera sistemi için WhatsApp'tan yazın, size hızlıca dönelim.",
+  description = "Uydu ve çanak anten kurulumu, telefon veya bilgisayar tamiri, kamera sistemi ve elektrik-internet arızaları için WhatsApp'tan yazın ya da hemen arayın.",
   whatsappMessage,
   showReviewLink = false,
 }: CTASectionProps) {
@@ -21,13 +25,11 @@ export function CTASection({
           {title}
         </h2>
         <p className="max-w-xl text-slate-300">{description}</p>
-        <div className="flex flex-col gap-3 sm:flex-row">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
           <WhatsAppButton size="lg" message={whatsappMessage} />
+          <CallButton size="lg" className={darkOutlineClass} />
           {showReviewLink && (
-            <ReviewButton
-              size="lg"
-              className="border-white/20 bg-transparent text-white hover:bg-white/10"
-            />
+            <ReviewButton size="lg" className={darkOutlineClass} />
           )}
         </div>
       </div>

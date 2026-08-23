@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "Ürünler ve Aksesuarlar Beyoğlu",
     description:
-      "Kılınç Teknomarket'te telefon ve tablet kılıfı, şarj aleti, data kablosu, bluetooth kulaklık, hoparlör, powerbank, TV kumandası ve küçük ev elektroniği bulabilirsiniz. Stok durumu için WhatsApp'tan yazın.",
+      "Kılınç Teknomarket'te uydu ve anten ürünleri, telefon aksesuarları, powerbank, hoparlör, kulaklık, şarj aleti, TV kumandası, elektronik ürünler ve küçük ev aletleri bulabilirsiniz. Stok durumu için WhatsApp'tan yazın.",
     path: "/urunler",
   });
 }
@@ -32,7 +32,7 @@ export default function UrunlerPage() {
       <PageHero
         breadcrumbItems={breadcrumbItems}
         title="Ürünler ve Aksesuarlar"
-        description="Telefon ve tablet aksesuarlarından küçük ev elektroniğine kadar ihtiyacınız olan ürünleri Beyoğlu'ndaki mağazamızda bulabilirsiniz."
+        description="Uydu ve anten ürünlerinden telefon aksesuarlarına, elektronik ürünlerden küçük ev aletlerine kadar ihtiyacınız olan ürünleri Beyoğlu'ndaki mağazamızda bulabilirsiniz."
       >
         <WhatsAppButton size="lg" message={productsWhatsAppMessage} />
       </PageHero>

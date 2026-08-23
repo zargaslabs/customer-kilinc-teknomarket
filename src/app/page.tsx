@@ -12,7 +12,6 @@ import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { ServiceArea } from "@/components/sections/ServiceArea";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { FeaturedProducts } from "@/components/sections/FeaturedProducts";
-import { Brands } from "@/components/sections/Brands";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { MapSection } from "@/components/sections/MapSection";
 import { CTASection } from "@/components/sections/CTASection";
@@ -35,7 +34,6 @@ export default function Home() {
       <ServiceArea />
       <ProcessSteps />
       <FeaturedProducts />
-      <Brands />
       <FAQSection items={homeFaq} />
       <MapSection />
       <CTASection />

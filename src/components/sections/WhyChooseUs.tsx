@@ -1,23 +1,30 @@
 import Image from "next/image"
 import {
   Clock3,
+  HeartHandshake,
   MessageCircle,
-  ShieldCheck,
+  SatelliteDish,
   Store,
   Truck,
-  Users,
 } from "lucide-react"
 
+// Not: kuruluş yılı, çalışan/müşteri sayısı, garanti süresi ve yetkili
+// servislik gibi işletmenin doğrulamadığı iddialar bilinçli olarak yok.
 const reasons = [
   {
-    icon: Users,
-    title: "Yerel ve Deneyimli Ekip",
-    description: "Beyoğlu/Kasımpaşa'da yıllardır bilinen, güvenilir bir teknik servis ekibi.",
+    icon: HeartHandshake,
+    title: "Müşteri Memnuniyeti Önceliğimiz",
+    description: "İşimizin merkezinde müşteri memnuniyeti var; her talebi sonuna kadar takip ediyoruz.",
+  },
+  {
+    icon: SatelliteDish,
+    title: "Uydu ve Çanak Antende Güçlü Hizmet",
+    description: "Çanak anten kurulumu, merkezi uydu sistemi ve uydu arıza servisi öne çıkan hizmet alanımız.",
   },
   {
     icon: Clock3,
-    title: "Aynı Gün Teknik Destek",
-    description: "Yaygın telefon, tablet ve bilgisayar arızalarında aynı gün çözüm sunuyoruz.",
+    title: "Hızlı Teknik Destek",
+    description: "Telefon, tablet ve bilgisayar arızalarında hızlı dönüş ve çözüm sunuyoruz.",
   },
   {
     icon: MessageCircle,
@@ -27,17 +34,12 @@ const reasons = [
   {
     icon: Truck,
     title: "Yerinde Kurulum, Mağazada Tamir",
-    description: "Uydu ve kamera sistemleri adresinizde kurulur, cihaz tamirleri mağazada yapılır.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Şeffaf ve Net Bilgilendirme",
-    description: "Tamire başlamadan önce arıza ve ücret hakkında net bilgi veririz, sürpriz çıkmaz.",
+    description: "Uydu, anten ve kamera sistemleri adresinizde kurulur, cihaz tamirleri mağazada yapılır.",
   },
   {
     icon: Store,
-    title: "Beyoğlu Merkezli Güven",
-    description: "Sabit adresi ve fiziksel mağazası olan, yıllardır aynı yerde hizmet veren bir işletmeyiz.",
+    title: "Beyoğlu'nda Fiziksel Mağaza",
+    description: "Sabit adresi olan yerel bir işletmeyiz; işlem öncesi net bilgi verir, sürpriz çıkarmayız.",
   },
 ]
 

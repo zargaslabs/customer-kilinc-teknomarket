@@ -36,12 +36,13 @@ export function ServicePageTemplate({ service }: { service: Service }) {
         <FAQSection
           items={service.faq}
           heading={`${service.shortTitle} Hakkında Sıkça Sorulan Sorular`}
-          intro={`${service.title} ile ilgili müşterilerimizin en çok merak ettiği sorular.`}
+          // Başlık zaten hizmet adını içeriyor; alt metinde tekrarlamıyoruz.
+          intro="Müşterilerimizin en çok merak ettiği sorular ve yanıtları."
         />
       )}
       <CTASection
         title={`${service.shortTitle} İçin Hemen Yazın`}
-        description={`${service.title} hakkında sorularınız için WhatsApp'tan yazın, size hızlıca dönelim.`}
+        description="Sorularınız için WhatsApp'tan yazın ya da hemen arayın, size hızlıca dönelim."
         whatsappMessage={getServiceWhatsAppMessage(service)}
       />
     </>

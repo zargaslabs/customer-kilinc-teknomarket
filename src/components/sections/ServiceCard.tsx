@@ -1,18 +1,31 @@
 import Link from "next/link"
 import { CheckCircle2 } from "lucide-react"
 
-import { getServiceWhatsAppMessage, type Service } from "@/lib/data/services"
+import { getServiceWhatsAppMessage, type ServiceCardData } from "@/lib/data/services"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton"
+import { cn } from "@/lib/utils"
 
-export function ServiceCard({ service }: { service: Service }) {
+export function ServiceCard({ service }: { service: ServiceCardData }) {
   return (
-    <Card className="h-full">
+    <Card
+      className={cn(
+        "h-full",
+        service.featured && "border-blue-600/40 ring-1 ring-blue-600/20"
+      )}
+    >
       <CardHeader>
-        <span className="flex size-11 items-center justify-center rounded-xl bg-blue-600/10 text-blue-600">
-          <service.icon className="size-5.5" />
-        </span>
+        <div className="flex items-start justify-between gap-3">
+          <span className="flex size-11 items-center justify-center rounded-xl bg-blue-600/10 text-blue-600">
+            <service.icon className="size-5.5" />
+          </span>
+          {service.featured && (
+            <span className="rounded-full bg-blue-600/10 px-2.5 py-1 text-xs font-medium text-blue-700 dark:text-blue-400">
+              Öne Çıkan Hizmet
+            </span>
+          )}
+        </div>
         {/* Hizmet adları hedeflenen SEO anahtar kelimeleriyle örtüştüğü için
             gerçek h3 kullanılıyor (shadcn CardTitle sadece div render eder). */}
         <h3 className="mt-3 font-heading text-base leading-snug font-medium text-foreground">

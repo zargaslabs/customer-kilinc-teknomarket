@@ -1,18 +1,19 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Clock, MapPin, Star, Users } from "lucide-react"
+import { Clock, HeartHandshake, MapPin, SatelliteDish } from "lucide-react"
 
-import { business } from "@/lib/data/business"
+import { business, getWorkingHoursDisplay } from "@/lib/data/business"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { CallButton } from "@/components/cta/CallButton"
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton"
 
-// Gerçek Google puanı/yorum sayısı netleşene kadar abartılı rakam yerine
-// güvenli, doğrulanabilir ifadeler kullanılıyor (bkz. business.googleReviewUrl).
+// Sayı içeren iddialar (puan, müşteri sayısı, yıl) bilinçli olarak yok;
+// yalnızca işletmenin doğruladığı bilgiler gösteriliyor.
 const trustBadges = [
-  { icon: Star, label: "Google Yorumları Yakında" },
-  { icon: Users, label: "Memnun Yerel Müşteriler" },
-  { icon: Clock, label: "Aynı Gün Servis" },
+  { icon: SatelliteDish, label: "Uydu ve Çanak Anten Kurulumu" },
+  { icon: HeartHandshake, label: "Müşteri Memnuniyeti Odaklı" },
+  { icon: Clock, label: getWorkingHoursDisplay() ?? "Hafta İçi ve Hafta Sonu Açık" },
   { icon: MapPin, label: "İstanbul Avrupa Yakası" },
 ]
 
@@ -30,15 +31,19 @@ export function Hero() {
           </Badge>
 
           <h1 className="mt-5 font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Beyoğlu&apos;nun Güvenilir Teknoloji ve Teknik Servis Noktası
+            Beyoğlu&apos;nda Uydu, Çanak Anten ve Teknoloji Servisi
           </h1>
 
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-300">
             {business.description}
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <WhatsAppButton size="lg" />
+            <CallButton
+              size="lg"
+              className="border-white/20 bg-transparent text-white hover:bg-white/10"
+            />
             <Button
               variant="outline"
               size="lg"

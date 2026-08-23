@@ -1,24 +1,9 @@
 import Image from "next/image"
-import {
-  BatteryCharging,
-  Cable,
-  Headphones,
-  Package,
-  Smartphone,
-  Tv,
-} from "lucide-react"
+import Link from "next/link"
 
-import { productsWhatsAppMessage } from "@/lib/data/products"
+import { featuredProducts, productsWhatsAppMessage } from "@/lib/data/products"
+import { Button } from "@/components/ui/button"
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton"
-
-const productCards = [
-  { icon: Smartphone, label: "Telefon ve Tablet Kılıfları" },
-  { icon: Cable, label: "Şarj Aletleri ve Data Kabloları" },
-  { icon: Headphones, label: "Bluetooth Kulaklık ve Hoparlör" },
-  { icon: BatteryCharging, label: "Powerbank" },
-  { icon: Tv, label: "TV Kumandaları" },
-  { icon: Package, label: "Küçük Ev Elektroniği" },
-]
 
 export function FeaturedProducts() {
   return (
@@ -29,15 +14,14 @@ export function FeaturedProducts() {
             Ürünler ve Aksesuarlar
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Telefon ve tablet aksesuarlarından küçük ev elektroniğine kadar
-            ihtiyacınız olan ürünleri mağazamızda bulabilirsiniz. Stok
-            durumuna göre airfryer, laptop ve oyun konsolu gibi ürünler de yer
-            alabilir.
+            Uydu ve anten ürünlerinden telefon aksesuarlarına, powerbank ve
+            hoparlörden küçük ev aletlerine kadar ihtiyacınız olan ürünleri
+            Beyoğlu&apos;ndaki mağazamızda bulabilirsiniz.
           </p>
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {productCards.map((product) => (
+          {featuredProducts.map((product) => (
             <div
               key={product.label}
               className="flex items-center gap-3 rounded-xl border border-border bg-card p-4"
@@ -73,11 +57,19 @@ export function FeaturedProducts() {
           </div>
         </div>
 
-        <WhatsAppButton
-          message={productsWhatsAppMessage}
-          label="Stok Durumunu WhatsApp'tan Sorun"
-          className="mt-8"
-        />
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <WhatsAppButton
+            message={productsWhatsAppMessage}
+            label="Stok Durumunu WhatsApp'tan Sorun"
+          />
+          <Button
+            variant="outline"
+            render={<Link href="/urunler" />}
+            nativeButton={false}
+          >
+            Tüm Ürünleri İncele
+          </Button>
+        </div>
       </div>
     </section>
   )

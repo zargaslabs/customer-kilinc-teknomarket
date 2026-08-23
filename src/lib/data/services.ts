@@ -26,6 +26,9 @@ export type Service = {
   icon: LucideIcon
   summary: string
   subServices: string[]
+  // İşletmenin öne çıkarmak istediği ana hizmet. Ana sayfadaki hizmet
+  // kartında rozet + vurgulu çerçeve ile gösterilir.
+  featured?: boolean
   // Aşağıdaki alanlar yalnızca gerçek detay sayfası oluşturulan servislerde
   // dolu olur (bkz. ServicePageTemplate). Sayfası henüz olmayan servisler için
   // boş bırakılır.
@@ -38,18 +41,112 @@ export type Service = {
   whatsappMessage?: string
 }
 
+// Ana sayfadaki hizmet kartının ihtiyaç duyduğu asgari alanlar. Detay sayfası
+// olmayan ama kartta gösterilen girişler (örn. /urunler) de bu şekli kullanır,
+// böylece kart bileşeni tek yerde kalır.
+export type ServiceCardData = Pick<
+  Service,
+  "slug" | "title" | "icon" | "summary" | "subServices" | "featured" | "whatsappMessage"
+>
+
+// Sıra bilinçlidir: işletmenin öne çıkarmak istediği uydu ve çanak anten
+// hizmeti ilk sırada. Bu dizi ana sayfa hizmet kartlarını, footer hizmet
+// listesini ve hakkımızda sayfasındaki hizmet linklerini besler.
 export const services: Service[] = [
   {
+    slug: "uydu-sistemleri",
+    title: "Uydu ve Çanak Anten Kurulumu",
+    shortTitle: "Uydu ve Çanak Anten",
+    icon: SatelliteDish,
+    featured: true,
+    summary:
+      "Çanak anten kurulumu, uydu sistemleri, uydu arıza servisi ve TV bağlantı ayarları.",
+    subServices: [
+      "Çanak anten kurulumu ve montajı",
+      "Uydu arıza ve servis",
+      "Uydu alıcısı kurulumu",
+      "Merkezi uydu sistemi kurulumu",
+      "TV bağlantı ve kanal ayarı",
+    ],
+    problems: [
+      {
+        title: "Çanak Antenim Yok veya Arızalı",
+        description:
+          "Yeni çanak anten kurulumu ve mevcut anten arızalarında adresinizde montaj, ayar ve onarım yapıyoruz.",
+      },
+      {
+        title: "Uydu Sinyalim Sürekli Gidiyor",
+        description:
+          "Hava koşulları, konum kayması veya kablo arızasından kaynaklanan uydu sinyal sorununu yerinde tespit edip çözüyoruz.",
+      },
+      {
+        title: "Apartmanda Herkese Ayrı Çanak Anten Yok",
+        description:
+          "Apartman ve siteler için merkezi uydu sistemi kurulumu ile tüm dairelere tek çanaktan yayın sağlıyoruz.",
+      },
+      {
+        title: "Uydu Alıcım veya TV'm Kanal Bulmuyor",
+        description:
+          "Uydu alıcısı kurulumu, TV bağlantısı ve kanal ayarlarını yaparak sisteminizi kullanıma hazır hale getiriyoruz.",
+      },
+    ],
+    faq: [
+      {
+        question: "Beyoğlu'nda çanak anten kurulumu yapıyor musunuz?",
+        answer:
+          "Evet, Beyoğlu ve Kasımpaşa başta olmak üzere İstanbul Avrupa Yakası'nda çanak anten kurulumu, uydu sistemi montajı ve anten servisi yapıyoruz.",
+      },
+      {
+        question: "Uydu kurulumu ne kadar sürer?",
+        answer:
+          "Standart bir çanak anten kurulumu genellikle bir saat içinde tamamlanır, apartman tipi merkezi sistemlerde süre bina büyüklüğüne göre değişir.",
+      },
+      {
+        question: "Uydu sinyali neden gidiyor?",
+        answer:
+          "Hava koşulları, çanak antenin konumundaki oynama veya kablo/LNB arızaları sinyal kaybının en sık nedenleridir. Uydu arıza servisi için bize ulaşabilirsiniz.",
+      },
+      {
+        question: "Merkezi uydu sistemi nedir?",
+        answer:
+          "Apartman veya site genelinde tek bir çanak anten üzerinden tüm dairelere yayın dağıtan sisteme merkezi uydu sistemi denir.",
+      },
+      {
+        question: "TV kurulumu ve kanal ayarı da yapıyor musunuz?",
+        answer:
+          "Evet, uydu alıcısı ve TV bağlantısının kurulumu ile kanal ayarlarını da yapıyoruz.",
+      },
+    ],
+    hero: {
+      title: "Beyoğlu Uydu Kurulumu ve Çanak Anten Servisi",
+      description:
+        "Kılınç Teknomarket, Beyoğlu ve Kasımpaşa'da çanak anten kurulumu, uydu sistemleri, merkezi uydu sistemi, uydu arıza servisi ve TV kanal ayarı hizmeti sunar.",
+      image: "/images/store/kilinc-teknomarket-magaza-dis-cephe-genis.png",
+      imageAlt:
+        "Kılınç Teknomarket mağaza geniş dış cephe görünümü, uydu ve çanak anten hizmeti",
+    },
+    seo: {
+      title: "Uydu Kurulumu ve Çanak Anten Servisi Beyoğlu",
+      description:
+        "Beyoğlu ve Kasımpaşa'da uydu kurulumu, çanak anten kurulumu, merkezi uydu sistemi ve uydu arıza servisi. Kılınç Teknomarket'e WhatsApp'tan hemen ulaşın.",
+    },
+    relatedSlugs: ["kamera-sistemleri", "elektrik-internet-hizmetleri"],
+    whatsappMessage:
+      "Merhaba, uydu kurulumu / çanak anten hakkında bilgi almak istiyorum.",
+  },
+  {
     slug: "telefon-tamiri",
-    title: "Telefon ve Tablet Tamiri",
-    shortTitle: "Telefon Tamiri",
+    title: "Telefon Satışı ve Tamiri",
+    shortTitle: "Telefon Teknik Servis",
     icon: Smartphone,
     summary:
-      "Ekran, batarya, şarj soketi ve yazılım sorunları için telefon ve tablet tamiri.",
+      "Telefon ve tablet tamiri, ekran ve batarya değişimi, telefon satışı ve ikinci el telefon.",
     subServices: [
       "Ekran değişimi",
       "Batarya değişimi",
       "Şarj soketi tamiri",
+      "Tablet tamiri",
+      "Telefon satışı ve ikinci el telefon",
       "Yazılım desteği",
     ],
     problems: [
@@ -69,9 +166,9 @@ export const services: Service[] = [
           "Şarj soketi temassızlığı ve kablo algılama sorunlarını yerinde tespit edip onarıyoruz.",
       },
       {
-        title: "Yazılımsal Sorunlar ve Yavaşlama",
+        title: "Yeni veya İkinci El Telefon Arıyorum",
         description:
-          "Donma, yavaşlama ve güncelleme hatalarında iPhone ve Android cihazlara yazılım desteği veriyoruz.",
+          "Mağazamızda telefon satışı yapıyor, ihtiyacınıza uygun ikinci el telefon seçeneklerinde de size yardımcı oluyoruz.",
       },
     ],
     faq: [
@@ -86,27 +183,27 @@ export const services: Service[] = [
           "Evet, Samsung, Xiaomi, Oppo ve Huawei başta olmak üzere birçok Android markasında ekran, batarya ve şarj soketi tamiri yapıyoruz.",
       },
       {
-        question: "Telefon bataryası neden şişer?",
+        question: "İkinci el telefon satışınız var mı?",
         answer:
-          "Aşırı ısınma, uzun süreli kullanım ve düşük kaliteli şarj aletleri bataryanın şişmesine neden olabilir; şişen bataryayı güvenlik açısından hemen değiştirmenizi öneririz.",
+          "Mağazamızda telefon satışının yanı sıra ikinci el telefon seçenekleri de bulunabiliyor. Güncel seçenekler için WhatsApp'tan yazabilir veya mağazamıza uğrayabilirsiniz.",
       },
       {
-        question: "Orijinal parça mı kullanıyorsunuz?",
+        question: "Tablet tamiri yapıyor musunuz?",
         answer:
-          "Mümkün olduğunca kaliteli ve uyumlu parçalar kullanıyor, parça seçimini tamire başlamadan önce sizinle paylaşıyoruz.",
+          "Evet, tabletlerde ekran, batarya, şarj soketi ve yazılım kaynaklı sorunlarda tamir ve teknik destek sağlıyoruz.",
       },
     ],
     hero: {
-      title: "Telefon ve iPhone Tamiri Beyoğlu",
+      title: "Telefon Tamiri ve Telefon Satışı Beyoğlu",
       description:
-        "Kılınç Teknomarket, Beyoğlu/Kasımpaşa'da iPhone ve Android telefonlar için ekran değişimi, batarya değişimi, şarj soketi tamiri ve yazılım desteği sunar.",
+        "Kılınç Teknomarket, Beyoğlu/Kasımpaşa'da iPhone ve Android telefonlar için ekran değişimi, batarya değişimi, şarj soketi tamiri, tablet tamiri ile telefon ve ikinci el telefon satışı sunar.",
       image: "/images/store/kilinc-teknomarket-telefon-kiliflari.png",
       imageAlt: "Kılınç Teknomarket telefon ve aksesuar reyonu",
     },
     seo: {
-      title: "Telefon Tamiri Beyoğlu",
+      title: "Telefon Tamiri ve Telefon Satışı Beyoğlu",
       description:
-        "Kılınç Teknomarket, Beyoğlu/Kasımpaşa'da iPhone ve Android telefon tamiri, ekran değişimi, batarya değişimi ve şarj soketi tamiri yapar. WhatsApp'tan hemen ulaşın.",
+        "Kılınç Teknomarket, Beyoğlu/Kasımpaşa'da iPhone ve Android telefon tamiri, ekran ve batarya değişimi, tablet tamiri ile telefon ve ikinci el telefon satışı yapar. WhatsApp'tan hemen ulaşın.",
     },
     relatedSlugs: ["bilgisayar-tamiri", "kamera-sistemleri"],
     whatsappMessage:
@@ -115,7 +212,7 @@ export const services: Service[] = [
   {
     slug: "bilgisayar-tamiri",
     title: "Bilgisayar ve Laptop Tamiri",
-    shortTitle: "Bilgisayar Tamiri",
+    shortTitle: "Bilgisayar Teknik Servis",
     icon: Laptop,
     summary:
       "Format, yazılım desteği ve donanım arızaları için bilgisayar ve laptop tamiri.",
@@ -261,79 +358,6 @@ export const services: Service[] = [
       "Merhaba, ev/işyerim için kamera sistemi kurulumu hakkında bilgi almak istiyorum.",
   },
   {
-    slug: "uydu-sistemleri",
-    title: "Uydu ve Çanak Anten Kurulumu",
-    shortTitle: "Uydu Sistemleri",
-    icon: SatelliteDish,
-    summary: "Uydu kurulumu, çanak anten montajı ve sinyal arızası çözümleri.",
-    subServices: [
-      "Çanak anten montajı",
-      "Sinyal arıza tespiti",
-      "Uydu alıcısı kurulumu",
-      "Merkezi uydu sistemi kurulumu",
-    ],
-    problems: [
-      {
-        title: "Çanak Antenim Yok veya Arızalı",
-        description:
-          "Yeni çanak anten montajı ve mevcut anten arızalarında yerinde kurulum ve onarım yapıyoruz.",
-      },
-      {
-        title: "Uydu Sinyalim Sürekli Gidiyor",
-        description:
-          "Hava koşulları, konum kayması veya kablo arızasından kaynaklanan uydu sinyal sorununu yerinde tespit edip çözüyoruz.",
-      },
-      {
-        title: "Apartmanda Herkese Ayrı Çanak Anten Yok",
-        description:
-          "Apartman ve siteler için merkezi uydu sistemi kurulumu ile tüm dairelere tek çanaktan yayın sağlıyoruz.",
-      },
-      {
-        title: "Uydu Alıcım Kanal Bulmuyor",
-        description:
-          "Uydu alıcısı kurulumu ve kanal ayarlarını yaparak cihazınızı kullanıma hazır hale getiriyoruz.",
-      },
-    ],
-    faq: [
-      {
-        question: "Uydu kurulumu ne kadar sürer?",
-        answer:
-          "Standart bir çanak anten kurulumu genellikle bir saat içinde tamamlanır, apartman tipi merkezi sistemlerde süre bina büyüklüğüne göre değişir.",
-      },
-      {
-        question: "Uydu sinyali neden gidiyor?",
-        answer:
-          "Hava koşulları, çanak antenin konumundaki oynama veya kablo/LNB arızaları sinyal kaybının en sık nedenleridir.",
-      },
-      {
-        question: "Merkezi uydu sistemi nedir?",
-        answer:
-          "Apartman veya site genelinde tek bir çanak anten üzerinden tüm dairelere yayın dağıtan sisteme merkezi uydu sistemi denir.",
-      },
-      {
-        question: "Hangi uydu alıcı markalarına destek veriyorsunuz?",
-        answer:
-          "Piyasada yaygın kullanılan çoğu uydu alıcısı markasında kurulum ve ayar desteği sağlıyoruz.",
-      },
-    ],
-    hero: {
-      title: "Uydu Kurulumu ve Çanak Anten Servisi Beyoğlu",
-      description:
-        "Kılınç Teknomarket, Beyoğlu/Kasımpaşa'da uydu kurulumu, çanak anten montajı, merkezi uydu sistemi ve sinyal arızası çözümleri sunar.",
-      image: "/images/store/kilinc-teknomarket-magaza-dis-cephe-genis.png",
-      imageAlt:
-        "Kılınç Teknomarket mağaza geniş dış cephe görünümü, uydu ve çanak anten hizmeti",
-    },
-    seo: {
-      title: "Uydu Kurulumu ve Çanak Anten Servisi Beyoğlu",
-      description:
-        "Kılınç Teknomarket, Beyoğlu/Kasımpaşa'da uydu kurulumu, çanak anten kurulumu, merkezi uydu sistemi ve uydu sinyal sorunu çözümü sunar. WhatsApp'tan hemen ulaşın.",
-    },
-    relatedSlugs: ["kamera-sistemleri", "elektrik-internet-hizmetleri"],
-    whatsappMessage:
-      "Merhaba, uydu kurulumu veya çanak anten hakkında bilgi almak istiyorum.",
-  },
-  {
     slug: "elektrik-internet-hizmetleri",
     title: "Elektrik ve İnternet Arıza Servisi",
     shortTitle: "Elektrik ve İnternet",
@@ -417,7 +441,7 @@ export function getService(slug: string): Service {
   return service
 }
 
-export function getServiceWhatsAppMessage(service: Service): string {
+export function getServiceWhatsAppMessage(service: ServiceCardData): string {
   return (
     service.whatsappMessage ??
     `Merhaba, ${service.title} hakkında bilgi almak istiyorum.`

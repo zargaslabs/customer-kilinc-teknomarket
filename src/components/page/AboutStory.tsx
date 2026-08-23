@@ -13,15 +13,19 @@ export function AboutStory() {
           </h2>
           <p className="mt-4 text-muted-foreground">
             Kılınç Teknomarket, Beyoğlu/Kasımpaşa merkezli bir teknoloji
-            marketi ve teknik servis işletmesidir. Mahallemizde uzun süredir
-            aynı adreste hizmet veriyor, İstanbul Avrupa Yakası&apos;nın
-            genelinden gelen müşterilerimize ulaşılabilir ve şeffaf bir teknik
-            destek sunuyoruz.
+            marketi ve teknik servis işletmesidir. Sabit adresimizde hizmet
+            veriyor, İstanbul Avrupa Yakası&apos;nın genelinden gelen
+            müşterilerimize ulaşılabilir ve şeffaf bir teknik destek sunuyoruz.
           </p>
           <p className="mt-4 text-muted-foreground">
-            Telefon ve tablet tamiri, bilgisayar ve laptop servisi, uydu ve
-            çanak anten kurulumu, kamera güvenlik sistemleri ile teknoloji
-            ürünleri satışı alanlarında hizmet veriyoruz. Amacımız, teknik
+            En güçlü olduğumuz alan uydu ve çanak anten hizmetleri: çanak anten
+            kurulumu, merkezi uydu sistemleri, uydu arıza servisi ve TV
+            bağlantısı. Bunun yanında telefon satışı ve tamiri, tablet ve
+            bilgisayar servisi, kamera güvenlik sistemleri, elektrik ve
+            internet arızaları ile teknoloji ürünleri satışı yapıyoruz.
+          </p>
+          <p className="mt-4 text-muted-foreground">
+            Bizim için en önemli ölçüt müşteri memnuniyeti. Amacımız, teknik
             sorunları müşterilerimiz için hızlı, net ve güvenilir bir şekilde
             çözmek.
           </p>
