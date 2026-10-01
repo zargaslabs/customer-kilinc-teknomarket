@@ -1,4 +1,14 @@
-import { Cctv, Laptop, SatelliteDish, Smartphone, Zap, type LucideIcon } from "lucide-react"
+import {
+  Building2,
+  Cctv,
+  Laptop,
+  SatelliteDish,
+  Smartphone,
+  Tv,
+  Wrench,
+  Zap,
+  type LucideIcon,
+} from "lucide-react"
 
 import type { FaqItem } from "@/lib/data/faq"
 
@@ -21,6 +31,8 @@ export type ServiceSeo = {
 
 export type Service = {
   slug: string
+  // Bir ana hizmetin alt sayfasıysa ana hizmetin slug'ı (breadcrumb için).
+  parentSlug?: string
   title: string
   shortTitle: string
   icon: LucideIcon
@@ -51,8 +63,8 @@ export type ServiceCardData = Pick<
 
 // Sıra bilinçlidir ve işletmenin hizmet önceliğini yansıtır: önce ana odak
 // (uydu ve çanak anten), sonra kamera ile elektrik-internet, ardından mağazada
-// yapılan telefon ve bilgisayar tamiri. Bu dizi ana sayfa hizmet kartlarını, footer hizmet
-// listesini ve hakkımızda sayfasındaki hizmet linklerini besler.
+// yapılan telefon ve bilgisayar tamiri. Bu dizi ana sayfa hizmet kartlarını,
+// footer hizmet listesini ve hakkımızda sayfasındaki hizmet linklerini besler.
 export const services: Service[] = [
   {
     slug: "uydu-sistemleri",
@@ -67,7 +79,7 @@ export const services: Service[] = [
       "Uydu arıza ve servis",
       "Uydu alıcısı kurulumu",
       "Merkezi uydu sistemi kurulumu",
-      "TV bağlantı ve kanal ayarı",
+      "TV kurulumu, duvara montaj ve kanal ayarı",
     ],
     problems: [
       {
@@ -130,7 +142,12 @@ export const services: Service[] = [
       description:
         "İstanbul genelinde uydu kurulumu, çanak anten kurulumu, merkezi uydu sistemi ve uydu arıza servisi. Avrupa ve Anadolu Yakası'nda yerinde hizmet. WhatsApp'tan hemen ulaşın.",
     },
-    relatedSlugs: ["kamera-sistemleri", "elektrik-internet-hizmetleri"],
+    relatedSlugs: [
+      "uydu-anten-ariza-servisi",
+      "merkezi-uydu-sistemi",
+      "tv-kurulumu-kanal-ayari",
+      "kamera-sistemleri",
+    ],
     whatsappMessage:
       "Merhaba, uydu kurulumu / çanak anten hakkında bilgi almak istiyorum.",
   },
@@ -433,8 +450,248 @@ export const services: Service[] = [
   },
 ]
 
+// Uydu ana hizmetinin altındaki detay sayfaları. Bilinçli olarak `services`
+// dizisinde değildir: ana sayfa kartlarında ve footer'da görünmez, uydu
+// sayfasından ve birbirlerinden linklenir. Bunlar ilçe sayfası değil, ayrı
+// arama niyetlerine karşılık gelen gerçek hizmetlerdir.
+export const satelliteServices: Service[] = [
+  {
+    slug: "uydu-anten-ariza-servisi",
+    parentSlug: "uydu-sistemleri",
+    title: "Uydu ve Anten Arıza Servisi",
+    shortTitle: "Uydu ve Anten Tamiri",
+    icon: Wrench,
+    summary:
+      "Sinyal kaybı, görüntü donması ve kanal gelmemesi gibi uydu ve anten arızalarında yerinde tespit ve tamir.",
+    subServices: [
+      "Uydu sinyal arızası tespiti",
+      "Çanak anten ayarı ve yön düzeltme",
+      "LNB ve kablo değişimi",
+      "Uydu alıcısı arıza kontrolü",
+      "Anten tamiri ve yenileme",
+    ],
+    problems: [
+      {
+        title: "Ekranda Sinyal Yok Yazıyor",
+        description:
+          "Çanak antenin yönü, LNB, kablo ve bağlantı noktalarını kontrol ederek sinyal kaybının kaynağını yerinde tespit ediyoruz.",
+      },
+      {
+        title: "Görüntü Donuyor veya Karelere Bölünüyor",
+        description:
+          "Zayıf sinyal çoğu zaman çanak ayarından veya yıpranmış kablodan kaynaklanır; ayar ve gerekirse parça değişimi yapıyoruz.",
+      },
+      {
+        title: "Bazı Kanallar Gelmiyor",
+        description:
+          "Eksik kanallarda uydu ayarını, alıcı kurulumunu ve frekans listesini kontrol edip kanalları yeniden yüklüyoruz.",
+      },
+      {
+        title: "Fırtına veya Yağmurdan Sonra Yayın Gitti",
+        description:
+          "Rüzgârla yönü kayan veya bağlantısı gevşeyen çanak antenleri yeniden sabitleyip ayarlıyoruz.",
+      },
+    ],
+    faq: [
+      {
+        question: "Uydu sinyali neden gidiyor?",
+        answer:
+          "En sık nedenler çanak antenin yönünün kayması, LNB arızası, kablo veya bağlantı ucu sorunları ve alıcı ayarlarıdır. Kesin neden yerinde kontrolle anlaşılır.",
+      },
+      {
+        question: "Uydu ve anten tamiri için adrese geliyor musunuz?",
+        answer:
+          "Evet. Uydu ve anten arızalarına İstanbul genelinde, Avrupa Yakası ve Anadolu Yakası'nda adresinize gelerek bakıyoruz.",
+      },
+      {
+        question: "Arıza için çanak antenin tamamen değişmesi gerekir mi?",
+        answer:
+          "Her zaman gerekmez. Birçok arıza ayar, kablo veya LNB değişimiyle çözülür; değişim gerekip gerekmediğini kontrol sonrasında size söylüyoruz.",
+      },
+      {
+        question: "Arızayı gelmeden önce anlayabilir misiniz?",
+        answer:
+          "Ekrandaki uyarının ve çanak antenin fotoğrafını WhatsApp'tan gönderirseniz ön bilgi verebiliriz; kesin tespit yerinde yapılır.",
+      },
+    ],
+    hero: {
+      title: "İstanbul Uydu ve Anten Arıza Servisi",
+      description:
+        "Kılınç Teknomarket; sinyal kaybı, görüntü donması ve kanal gelmemesi gibi uydu ve anten arızalarını İstanbul genelinde adresinizde tespit edip onarır.",
+      image: "/images/services/satellite/kilinc-teknomarket-uydu-montaji-beyoglu.png",
+      imageAlt: "Kılınç Teknomarket uydu ve anten arıza servisi, çanak anten ayarı",
+    },
+    seo: {
+      title: "Uydu ve Anten Tamiri, Arıza Servisi İstanbul",
+      description:
+        "İstanbul genelinde uydu tamiri, anten tamiri ve uydu arıza servisi. Sinyal yok, görüntü donması ve kanal sorunlarında yerinde çözüm. WhatsApp'tan ulaşın.",
+    },
+    relatedSlugs: ["uydu-sistemleri", "tv-kurulumu-kanal-ayari"],
+    whatsappMessage:
+      "Merhaba, uydu/anten arızam var (sinyal veya kanal sorunu). Servis hakkında bilgi almak istiyorum.",
+  },
+  {
+    slug: "merkezi-uydu-sistemi",
+    parentSlug: "uydu-sistemleri",
+    title: "Merkezi Uydu Sistemi Kurulumu",
+    shortTitle: "Merkezi Uydu Sistemi",
+    icon: Building2,
+    summary:
+      "Apartman, site ve iş yerleri için tek çanaktan tüm dairelere yayın dağıtan merkezi uydu sistemi kurulumu ve bakımı.",
+    subServices: [
+      "Apartman ve site merkezi uydu sistemi kurulumu",
+      "Mevcut merkezi sistemin bakımı ve arıza tespiti",
+      "Daire içi uydu hattı çekimi",
+      "Sisteme yeni daire veya uç ekleme",
+      "Keşif ve ihtiyaca göre sistem önerisi",
+    ],
+    problems: [
+      {
+        title: "Çatıda Her Daire İçin Ayrı Çanak Var",
+        description:
+          "Merkezi uydu sistemiyle tüm daireler tek çanak anten üzerinden yayın alır; çatıdaki çanak kalabalığı ortadan kalkar.",
+      },
+      {
+        title: "Bazı Dairelerde Yayın Zayıf veya Yok",
+        description:
+          "Dağıtım ekipmanını ve kablo hattını kontrol ederek sorunun hangi noktadan kaynaklandığını tespit ediyoruz.",
+      },
+      {
+        title: "Eski Merkezi Sistem Artık Yetmiyor",
+        description:
+          "Mevcut sistemi inceleyip onarımın mı yoksa yenilemenin mi daha uygun olduğunu size açıkça söylüyoruz.",
+      },
+      {
+        title: "Yeni Binaya Sistem Kurulacak",
+        description:
+          "Daire sayısına ve binanın yapısına göre keşif yapıp uygun merkezi uydu sistemini planlıyoruz.",
+      },
+    ],
+    faq: [
+      {
+        question: "Merkezi uydu sistemi nedir?",
+        answer:
+          "Apartman veya site genelinde tek bir çanak anten üzerinden tüm dairelere yayın dağıtan sistemdir. Her daire kendi uydu alıcısıyla bağımsız olarak izler.",
+      },
+      {
+        question: "Kurulum ne kadar sürer?",
+        answer:
+          "Süre; daire sayısına, binanın yapısına ve kablolama ihtiyacına göre değişir. Keşif sonrasında size net bir süre bilgisi veriyoruz.",
+      },
+      {
+        question: "Fiyat nasıl belirlenir?",
+        answer:
+          "Fiyat daire sayısına ve gereken ekipmana göre değişir. Keşif sonrasında bilgi veriyoruz; ön bilgi için WhatsApp'tan yazabilirsiniz.",
+      },
+      {
+        question: "Mevcut merkezi sistemin arızasına da bakıyor musunuz?",
+        answer:
+          "Evet, mevcut merkezi uydu sistemlerinde de arıza tespiti ve bakım yapıyoruz.",
+      },
+    ],
+    hero: {
+      title: "İstanbul Merkezi Uydu Sistemi Kurulumu",
+      description:
+        "Kılınç Teknomarket; apartman, site ve iş yerleri için merkezi uydu sistemi kurulumu, bakımı ve arıza servisini İstanbul genelinde yerinde sunar.",
+      image: "/images/services/satellite/kilinc-teknomarket-uydu-montaji-beyoglu.png",
+      imageAlt: "Kılınç Teknomarket merkezi uydu sistemi ve çanak anten montajı",
+    },
+    seo: {
+      title: "Merkezi Uydu Sistemi Kurulumu İstanbul",
+      description:
+        "İstanbul genelinde apartman ve siteler için merkezi uydu sistemi kurulumu, bakımı ve arıza servisi. Keşif ve bilgi için WhatsApp'tan ulaşın.",
+    },
+    relatedSlugs: ["uydu-sistemleri", "uydu-anten-ariza-servisi"],
+    whatsappMessage:
+      "Merhaba, apartmanımız/sitemiz için merkezi uydu sistemi hakkında bilgi almak istiyorum.",
+  },
+  {
+    slug: "tv-kurulumu-kanal-ayari",
+    parentSlug: "uydu-sistemleri",
+    title: "TV Kurulumu ve Kanal Ayarı",
+    shortTitle: "TV Kurulumu ve Kanal Ayarı",
+    icon: Tv,
+    summary:
+      "Televizyon kurulumu, TV duvara montajı, uydu alıcısı bağlantısı, kanal arama ve kanal sıralama.",
+    subServices: [
+      "Televizyon ilk kurulumu",
+      "TV duvara montajı",
+      "Uydu alıcısı kurulumu ve bağlantısı",
+      "Kanal arama ve kanal sıralama",
+      "TV ile uydu bağlantısının yapılması",
+      "Kumanda ve alıcı ayarları",
+    ],
+    problems: [
+      {
+        title: "Yeni Televizyon Aldım, Kanallar Yok",
+        description:
+          "Televizyonun ilk kurulumunu, uydu bağlantısını ve kanal aramasını yaparak izlemeye hazır hale getiriyoruz.",
+      },
+      {
+        title: "Kanallar Karışık veya Sırası Bozuldu",
+        description:
+          "Kanal listesini yeniden yükleyip istediğiniz sıraya göre düzenliyoruz.",
+      },
+      {
+        title: "Televizyonu Duvara Astırmak İstiyorum",
+        description:
+          "Televizyonunuzu duvara monte ediyor, uydu ve anten bağlantılarını da aynı ziyarette yapıyoruz.",
+      },
+      {
+        title: "Uydu Alıcısını Televizyona Bağlayamıyorum",
+        description:
+          "Uydu alıcısı ile televizyon arasındaki bağlantıyı ve gerekli ayarları yapıyoruz.",
+      },
+    ],
+    faq: [
+      {
+        question: "Televizyon kurulumu için eve geliyor musunuz?",
+        answer:
+          "Evet. TV kurulumu, uydu bağlantısı ve kanal ayarını İstanbul genelinde adresinize gelerek yapıyoruz.",
+      },
+      {
+        question: "TV duvara montajı yapıyor musunuz?",
+        answer:
+          "Evet, televizyonun duvara montajını yapıyoruz. Televizyonun ekran boyutunu ve duvarın türünü WhatsApp'tan yazarsanız ön bilgi verebiliriz.",
+      },
+      {
+        question: "Sadece kanal ayarı için de gelir misiniz?",
+        answer:
+          "Evet, yalnızca kanal arama ve kanal sıralama için de hizmet veriyoruz.",
+      },
+      {
+        question: "Uydu alıcısı da satıyor musunuz?",
+        answer:
+          "Evet, Beyoğlu'ndaki mağazamızda uydu alıcıları ve uydu-anten ürünleri satıyoruz. Güncel stok için WhatsApp'tan yazabilirsiniz.",
+      },
+      {
+        question: "Kanallar hiç gelmiyorsa sorun televizyonda mı?",
+        answer:
+          "Her zaman değil. Sorun çanak antenden, kablodan veya alıcıdan da kaynaklanabilir; yerinde kontrol ederek nedenini belirliyoruz.",
+      },
+    ],
+    hero: {
+      title: "İstanbul TV Kurulumu, Montajı ve Kanal Ayarı",
+      description:
+        "Kılınç Teknomarket; televizyon kurulumu, TV duvara montajı, uydu alıcısı bağlantısı, kanal arama ve kanal sıralama hizmetini İstanbul genelinde adresinizde sunar.",
+      image: "/images/products/kilinc-teknomarket-uydu-alicilari-tv-box.png",
+      imageAlt: "Kılınç Teknomarket uydu alıcıları ve TV kurulum ürünleri",
+    },
+    seo: {
+      title: "TV Kurulumu, Duvara Montaj ve Kanal Ayarı İstanbul",
+      description:
+        "İstanbul genelinde televizyon kurulumu, TV duvara montajı, uydu alıcısı kurulumu ve kanal ayarı. Adresinizde yerinde hizmet. WhatsApp'tan ulaşın.",
+    },
+    relatedSlugs: ["uydu-sistemleri", "uydu-anten-ariza-servisi"],
+    whatsappMessage:
+      "Merhaba, TV kurulumu / duvara montaj / kanal ayarı hakkında bilgi almak istiyorum.",
+  },
+]
+
+const allServices = [...services, ...satelliteServices]
+
 export function getService(slug: string): Service {
-  const service = services.find((item) => item.slug === slug)
+  const service = allServices.find((item) => item.slug === slug)
   if (!service) {
     throw new Error(`Service not found for slug: ${slug}`)
   }

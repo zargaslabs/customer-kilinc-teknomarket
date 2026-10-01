@@ -11,6 +11,9 @@ const routes: { path: string; priority: number; changeFrequency: MetadataRoute.S
   { path: "/", priority: 1, changeFrequency: "weekly" },
   // İşletmenin öne çıkarmak istediği hizmet: uydu ve çanak anten.
   { path: "/uydu-sistemleri", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/uydu-anten-ariza-servisi", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/merkezi-uydu-sistemi", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/tv-kurulumu-kanal-ayari", priority: 0.8, changeFrequency: "monthly" },
   { path: "/kamera-sistemleri", priority: 0.8, changeFrequency: "monthly" },
   { path: "/elektrik-internet-hizmetleri", priority: 0.8, changeFrequency: "monthly" },
   { path: "/telefon-tamiri", priority: 0.7, changeFrequency: "monthly" },

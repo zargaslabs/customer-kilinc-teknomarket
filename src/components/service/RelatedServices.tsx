@@ -1,16 +1,12 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
-import { services, type Service } from "@/lib/data/services"
+import { getService, type Service } from "@/lib/data/services"
 
 export function RelatedServices({ current }: { current: Service }) {
   if (!current.relatedSlugs || current.relatedSlugs.length === 0) return null
 
-  const related = current.relatedSlugs
-    .map((slug) => services.find((service) => service.slug === slug))
-    .filter((service): service is Service => Boolean(service))
-
-  if (related.length === 0) return null
+  const related = current.relatedSlugs.map(getService)
 
   return (
     <section className="bg-background py-20">

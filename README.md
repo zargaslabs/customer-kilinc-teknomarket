@@ -21,7 +21,7 @@ npm run build
 
 - Site Vercel'de yayında: https://customer-kilinc-teknomarket.vercel.app
   (geçici adres; gerçek alan adı henüz satın alınmadı).
-- 10 sayfa: `/`, 5 hizmet sayfası, `/urunler`, `/hakkimizda`, `/iletisim`,
+- 13 sayfa: `/`, 5 hizmet sayfası, 3 uydu alt hizmet sayfası, `/urunler`, `/hakkimizda`, `/iletisim`,
   `/yorum-birak` (`noindex`, sitemap dışı).
 - Konumlandırma: fiziksel mağaza Beyoğlu'nda, saha hizmetleri İstanbul
   genelinde (Avrupa Yakası ve Anadolu Yakası). İlçe sayfası yok.

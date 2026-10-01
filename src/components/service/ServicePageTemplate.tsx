@@ -1,4 +1,8 @@
-import { getServiceWhatsAppMessage, type Service } from "@/lib/data/services"
+import {
+  getService,
+  getServiceWhatsAppMessage,
+  type Service,
+} from "@/lib/data/services"
 import { breadcrumbSchema } from "@/lib/schema/breadcrumb"
 import { faqPageSchema } from "@/lib/schema/faqPage"
 import { serviceSchema } from "@/lib/schema/service"
@@ -14,8 +18,10 @@ import { FAQSection } from "@/components/sections/FAQSection"
 import { CTASection } from "@/components/sections/CTASection"
 
 export function ServicePageTemplate({ service }: { service: Service }) {
+  const parent = service.parentSlug ? getService(service.parentSlug) : null
   const breadcrumbItems = [
     { name: "Ana Sayfa", path: "/" },
+    ...(parent ? [{ name: parent.shortTitle, path: `/${parent.slug}` }] : []),
     { name: service.shortTitle, path: `/${service.slug}` },
   ]
 

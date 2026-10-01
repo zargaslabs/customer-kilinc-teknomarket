@@ -82,6 +82,12 @@ Create pages:
 - [x] Elektrik ve İnternet Hizmetleri
 - [x] Ürünler
 
+Satellite detail pages (added October 2026, linked from Uydu Sistemleri):
+
+- [x] Uydu ve Anten Arıza Servisi
+- [x] Merkezi Uydu Sistemi
+- [x] TV Kurulumu ve Kanal Ayarı
+
 Each service page must include:
 
 - [x] H1
