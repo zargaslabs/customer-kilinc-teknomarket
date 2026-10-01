@@ -7,24 +7,19 @@ export type FaqItem = {
 
 export const homeFaq: FaqItem[] = [
   {
-    question: "Beyoğlu'nda uydu ve çanak anten kurulumu yapıyor musunuz?",
+    question: "İstanbul'da uydu ve çanak anten kurulumu yapıyor musunuz?",
     answer:
-      "Evet. Beyoğlu ve Kasımpaşa başta olmak üzere çanak anten kurulumu, uydu sistemi montajı, merkezi uydu sistemi ve uydu arıza servisi hizmeti veriyoruz.",
+      "Evet. Çanak anten kurulumu, uydu sistemi montajı, merkezi uydu sistemi ve uydu arıza servisini İstanbul genelinde adresinize gelerek veriyoruz.",
+  },
+  {
+    question: "Hangi bölgelere hizmet veriyorsunuz?",
+    answer:
+      "Mağazamız Beyoğlu'nda. Uydu ve çanak anten, kamera sistemi, elektrik ve internet hizmetlerini İstanbul genelinde, Avrupa Yakası ve Anadolu Yakası'nda adresinizde sunuyoruz. Telefon ve bilgisayar tamirleri mağazamızda yapılır.",
   },
   {
     question: "Uydu sinyali neden gidiyor?",
     answer:
       "Hava koşulları, çanak antenin konumundaki oynama veya kablo/LNB arızaları sinyal kaybının en sık nedenleridir. Kurulum ve arıza tespiti için bize ulaşabilirsiniz.",
-  },
-  {
-    question: "Hangi bölgelere hizmet veriyorsunuz?",
-    answer:
-      "Beyoğlu ve Kasımpaşa merkezli olarak Şişli, Beşiktaş, Fatih, Kağıthane, Eyüpsultan ve İstanbul Avrupa Yakası genelinde uydu kurulumu, anten servisi, kamera sistemi ve teknik servis hizmeti sunuyoruz.",
-  },
-  {
-    question: "Telefon tamiri ne kadar sürer?",
-    answer:
-      "Ekran ve batarya değişimi gibi yaygın tamirler genellikle aynı gün içinde tamamlanır. Parça teminine bağlı arızalarda süre değişebilir, güncel bilgi için mağazamızla iletişime geçebilirsiniz.",
   },
   {
     question: "Kamera sistemi kurulumu için yerinde keşif yapıyor musunuz?",
@@ -34,7 +29,12 @@ export const homeFaq: FaqItem[] = [
   {
     question: "Randevu almam gerekir mi?",
     answer:
-      "Çoğu tamir ve teknik servis talebi için mağazamıza gelmeniz yeterlidir. Uydu, anten ve kamera kurulumu için önceden WhatsApp üzerinden yazmanızı öneririz.",
+      "Uydu, anten ve kamera kurulumu gibi yerinde hizmetler için önceden WhatsApp üzerinden yazmanızı öneririz. Tamir talepleri için mağazamıza doğrudan gelebilirsiniz.",
+  },
+  {
+    question: "Telefon tamiri ne kadar sürer?",
+    answer:
+      "Süre, arızanın türüne ve parça durumuna göre değişir. Güncel bilgi için WhatsApp'tan yazabilir veya mağazamızla iletişime geçebilirsiniz.",
   },
 ]
 
@@ -60,6 +60,6 @@ export const contactFaq: FaqItem[] = [
   {
     question: "Kurulum hizmetleri için randevu gerekiyor mu?",
     answer:
-      "Uydu, çanak anten ve kamera sistemi kurulumları için WhatsApp'tan önceden yazmanızı öneririz, böylece size uygun bir zaman planlayabiliriz. Tamir işlemleri için randevu gerekmez.",
+      "Uydu, çanak anten ve kamera sistemi kurulumları için WhatsApp'tan önceden yazmanızı öneririz; İstanbul genelinde adresinize uygun bir zaman planlarız. Tamir işlemleri için randevu gerekmez.",
   },
 ]

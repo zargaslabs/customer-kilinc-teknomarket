@@ -17,9 +17,9 @@ export function ServiceGrid() {
             Hizmetlerimiz
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Uydu ve çanak anten kurulumundan telefon, bilgisayar, kamera ve
-            elektrik hizmetlerine kadar Beyoğlu ve çevresinde ihtiyacınız olan
-            her şey tek adreste.
+            Uydu ve çanak anten kurulumundan kamera sistemlerine, elektrik ve
+            internet arızalarından telefon ve bilgisayar tamirine kadar
+            İstanbul genelinde ihtiyacınız olan teknik hizmetler tek adreste.
           </p>
         </div>
 

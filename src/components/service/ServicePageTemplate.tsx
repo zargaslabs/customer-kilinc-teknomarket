@@ -9,6 +9,7 @@ import { ServiceCapabilities } from "@/components/service/ServiceCapabilities"
 import { RelatedServices } from "@/components/service/RelatedServices"
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs"
 import { ProcessSteps } from "@/components/sections/ProcessSteps"
+import { ServiceArea } from "@/components/sections/ServiceArea"
 import { FAQSection } from "@/components/sections/FAQSection"
 import { CTASection } from "@/components/sections/CTASection"
 
@@ -31,6 +32,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
       <ServiceCapabilities service={service} />
       <WhyChooseUs />
       <ProcessSteps />
+      <ServiceArea />
       <RelatedServices current={service} />
       {service.faq && service.faq.length > 0 && (
         <FAQSection

@@ -11,13 +11,15 @@ export const siteUrl = (
 
 export const siteConfig = {
   name: business.name,
-  defaultTitle: `${business.name} | Beyoğlu Uydu, Çanak Anten ve Teknik Servis`,
-  description: business.description,
+  defaultTitle: `${business.name} | İstanbul Uydu, Çanak Anten ve Teknik Servis`,
+  // Arama sonuçlarında kesilmemesi için business.description'ın kısa hali.
+  description:
+    "İstanbul genelinde uydu ve çanak anten kurulumu, kamera sistemleri, elektrik ve internet arıza servisi. Beyoğlu mağazamızda telefon ve bilgisayar tamiri.",
   url: siteUrl,
   locale: "tr_TR",
-  // Dedike bir 1200x630 Open Graph görseli hazırlanana kadar gerçek mağaza
-  // fotoğrafı fallback olarak kullanılıyor.
-  defaultImage: "/images/store/kilinc-teknomarket-magaza-dis-cephe.png",
+  // Gerçek mağaza fotoğrafından üretilmiş 1200x630 Open Graph görseli.
+  defaultImage: "/images/og/kilinc-teknomarket-og.jpg",
+  defaultImageSize: { width: 1200, height: 630 },
 }
 
 export function absoluteUrl(path: string = "/") {
@@ -63,7 +65,7 @@ export function buildMetadata({
       siteName: siteConfig.name,
       title,
       description,
-      images: [{ url: imageUrl, width: 1360, height: 765, alt: title }],
+      images: [{ url: imageUrl, ...siteConfig.defaultImageSize, alt: title }],
     },
     twitter: {
       card: "summary_large_image",

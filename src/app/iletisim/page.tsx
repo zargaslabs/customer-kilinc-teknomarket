@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: "İletişim",
     description:
-      "Kılınç Teknomarket'e Beyoğlu/Kasımpaşa'daki mağazamızdan, WhatsApp'tan veya telefonla ulaşabilirsiniz. Adres, yol tarifi ve çalışma saatleri (her gün 08:00 - 21:00) için tıklayın.",
+      "Kılınç Teknomarket'e WhatsApp, telefon veya Beyoğlu'ndaki mağazamızdan ulaşın. İstanbul genelinde yerinde servis. Her gün 08:00 - 21:00 açığız.",
     path: "/iletisim",
   });
 }
@@ -37,7 +37,7 @@ export default function IletisimPage() {
       <PageHero
         breadcrumbItems={breadcrumbItems}
         title="Bize Ulaşın"
-        description="Beyoğlu/Kasımpaşa'daki mağazamıza WhatsApp, telefon veya yol tarifiyle kolayca ulaşabilirsiniz."
+        description="Beyoğlu'ndaki mağazamıza WhatsApp, telefon veya yol tarifiyle kolayca ulaşabilirsiniz. Kurulum ve arıza hizmetleri için İstanbul genelinde adresinize geliyoruz."
         image="/images/store/kilinc-teknomarket-magaza-beyoglu.png"
         imageAlt="Kılınç Teknomarket Beyoğlu mağazası"
       >

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     default: siteConfig.defaultTitle,
     template: `%s | ${business.name}`,
   },
-  description: business.description,
+  description: siteConfig.description,
   robots: {
     index: true,
     follow: true,
@@ -42,8 +42,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: siteConfig.defaultImage,
-        width: 1360,
-        height: 765,
+        ...siteConfig.defaultImageSize,
         alt: business.name,
       },
     ],

@@ -9,20 +9,20 @@ export function AboutStory() {
       <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
         <div>
           <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground">
-            Beyoğlu&apos;nda Yerel ve Güvenilir Bir Teknoloji İşletmesi
+            Beyoğlu&apos;ndan İstanbul Geneline Hizmet
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Kılınç Teknomarket, Beyoğlu/Kasımpaşa merkezli bir teknoloji
-            marketi ve teknik servis işletmesidir. Sabit adresimizde hizmet
-            veriyor, İstanbul Avrupa Yakası&apos;nın genelinden gelen
-            müşterilerimize ulaşılabilir ve şeffaf bir teknik destek sunuyoruz.
+            Kılınç Teknomarket, mağazası Beyoğlu&apos;nda bulunan bir teknoloji
+            marketi ve teknik servis işletmesidir. Kurulum ve arıza
+            hizmetlerimizi İstanbul genelinde, Avrupa Yakası ve Anadolu
+            Yakası&apos;nda adresinize gelerek veriyoruz.
           </p>
           <p className="mt-4 text-muted-foreground">
             En güçlü olduğumuz alan uydu ve çanak anten hizmetleri: çanak anten
             kurulumu, merkezi uydu sistemleri, uydu arıza servisi ve TV
-            bağlantısı. Bunun yanında telefon satışı ve tamiri, tablet ve
-            bilgisayar servisi, kamera güvenlik sistemleri, elektrik ve
-            internet arızaları ile teknoloji ürünleri satışı yapıyoruz.
+            bağlantısı. Bunun yanında kamera güvenlik sistemleri, elektrik ve
+            internet arızaları, telefon satışı ve tamiri, tablet ve bilgisayar
+            servisi ile teknoloji ürünleri satışı yapıyoruz.
           </p>
           <p className="mt-4 text-muted-foreground">
             Bizim için en önemli ölçüt müşteri memnuniyeti. Amacımız, teknik

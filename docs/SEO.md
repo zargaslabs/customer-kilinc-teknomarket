@@ -67,28 +67,17 @@ Better approach:
 
 ## Service Area SEO Strategy
 
-The website should target:
+Updated with customer information (October 2026):
 
-Primary:
+- The physical store is in Beyoğlu. This is the only location; never invent branches or offices.
+- Field services (satellite/antenna, camera, electrical, internet) cover all of Istanbul, both the European Side and the Anatolian Side.
+- Phone and computer repair and product sales happen in the Beyoğlu store.
 
-- Beyoğlu
-- Kasımpaşa
-- Şişli
-- Beşiktaş
-- Fatih
-- Kağıthane
-- Eyüpsultan
-
-Broad target:
-
-- Istanbul European Side
-
-Use these naturally inside content.  
-Do not repeat district names unnaturally.
+Positioning is "İstanbul geneli". Use natural phrases such as "İstanbul genelinde" and "Avrupa Yakası ve Anadolu Yakası". Do not list districts one after another and do not create district doorway pages. Older Beyoğlu-only titles and examples further down in this document are superseded by this section.
 
 Example:
 
-“Kılınç Teknomarket, Beyoğlu/Kasımpaşa merkezli olup Şişli, Beşiktaş, Fatih, Kağıthane, Eyüpsultan ve İstanbul Avrupa Yakası genelinde uydu kurulumu, kamera sistemi ve teknik servis hizmetleri sunar.”
+“Kılınç Teknomarket, İstanbul genelinde uydu ve çanak anten kurulumu, kamera sistemleri, elektrik ve internet arıza servisi sunar. Mağazamız Beyoğlu'ndadır.”
 
 ---
 

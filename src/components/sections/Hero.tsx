@@ -14,7 +14,7 @@ const trustBadges = [
   { icon: SatelliteDish, label: "Uydu ve Çanak Anten Kurulumu" },
   { icon: HeartHandshake, label: "Müşteri Memnuniyeti Odaklı" },
   { icon: Clock, label: getWorkingHoursDisplay() ?? "Hafta İçi ve Hafta Sonu Açık" },
-  { icon: MapPin, label: "İstanbul Avrupa Yakası" },
+  { icon: MapPin, label: "Avrupa ve Anadolu Yakası" },
 ]
 
 export function Hero() {
@@ -27,11 +27,11 @@ export function Hero() {
             className="border-white/20 text-slate-200"
           >
             <MapPin data-icon="inline-start" />
-            Beyoğlu / Kasımpaşa
+            İstanbul geneli hizmet · Mağaza Beyoğlu
           </Badge>
 
           <h1 className="mt-5 font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Beyoğlu&apos;nda Uydu, Çanak Anten ve Teknoloji Servisi
+            İstanbul&apos;da Uydu, Çanak Anten ve Teknik Servis
           </h1>
 
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-300">

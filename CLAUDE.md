@@ -41,7 +41,14 @@ The business provides:
 - Chargers, cables, headphones, speakers, powerbanks
 - Occasional technology product sales such as airfryer, laptop and game console
 
-The business can serve not only Beyoğlu/Kasımpaşa but also many districts on the European Side of Istanbul.
+The physical store is in Beyoğlu, but field services (satellite/antenna, camera, electrical, internet) are provided across all of Istanbul, on both the European and Anatolian sides. Copy must not imply that service is limited to Beyoğlu; Beyoğlu is the store location.
+
+Service priority:
+
+1. Main focus: satellite, dish antenna, antenna and TV/satellite systems
+2. Secondary: camera systems, electrical and internet services
+3. Additional: phone, computer and laptop repair (done in the store)
+4. Sales: phones, accessories, chargers, cables and other electronics
 
 ---
 
@@ -174,7 +181,7 @@ Camiikebir, Kızılay Meydanı Cd. No:9, 34421 Beyoğlu/İstanbul
 
 Service area:
 
-Istanbul European Side
+All of Istanbul (European Side and Anatolian Side). Do not list districts one after another.
 
 Working hours:
 
@@ -205,7 +212,9 @@ come first:
 - laptop tamiri Beyoğlu
 - elektrik arıza servisi
 - internet arızası
-- İstanbul Avrupa Yakası teknik servis
+- İstanbul uydu servisi
+- İstanbul çanak anten kurulumu
+- İstanbul teknik servis
 
 ---
 

@@ -14,7 +14,7 @@ type CTASectionProps = {
 
 export function CTASection({
   title = "Hemen Teknik Destek Alın",
-  description = "Uydu ve çanak anten kurulumu, telefon veya bilgisayar tamiri, kamera sistemi ve elektrik-internet arızaları için WhatsApp'tan yazın ya da hemen arayın.",
+  description = "Uydu ve çanak anten kurulumu, kamera sistemi, elektrik-internet arızaları ve telefon veya bilgisayar tamiri için WhatsApp'tan yazın ya da hemen arayın.",
   whatsappMessage,
   showReviewLink = false,
 }: CTASectionProps) {

@@ -2,8 +2,6 @@ import type { Service } from "@/lib/data/services"
 import { business } from "@/lib/data/business"
 import { absoluteUrl, siteConfig } from "@/lib/seo"
 
-// Sprint 4'te /[slug] servis detay sayfaları oluşturulunca bu builder
-// o sayfalarda JSON-LD olarak kullanılacak.
 export function serviceSchema(service: Service) {
   return {
     "@context": "https://schema.org",
@@ -17,6 +15,6 @@ export function serviceSchema(service: Service) {
       name: business.name,
       url: siteConfig.url,
     },
-    areaServed: [...business.serviceAreas.primary, business.serviceAreas.broad],
+    areaServed: { "@type": "City", name: business.serviceArea.city },
   }
 }

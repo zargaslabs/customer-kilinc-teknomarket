@@ -1,10 +1,13 @@
 # TASKS.md
 
-## Current Goal
+## Current Status (October 2026)
 
-Build the first working demo of Kılınç Teknomarket website.
+The site is built and live on a temporary Vercel address
+(https://customer-kilinc-teknomarket.vercel.app). Content uses real business
+data. The real domain has not been purchased yet; the remaining open items are
+in Sprint 6, Sprint 7 and Sprint 8.
 
-The first demo must be good enough to show the business owner.
+Original demo goal, kept for reference:
 
 Main demo goal:
 
@@ -18,16 +21,16 @@ Main demo goal:
 
 ## Sprint 1 - Project Setup
 
-- [ ] Create Next.js project
-- [ ] Install TypeScript, Tailwind, ESLint
-- [ ] Install shadcn/ui
-- [ ] Install Lucide React
-- [ ] Install Framer Motion / Motion
-- [ ] Install next-sitemap
-- [ ] Configure base layout
-- [ ] Add global styles
-- [ ] Create reusable UI components
-- [ ] Confirm mobile layout works
+- [x] Create Next.js project
+- [x] Install TypeScript, Tailwind, ESLint
+- [x] Install shadcn/ui
+- [x] Install Lucide React
+- [x] Framer Motion / Motion: not needed, removed (CSS transitions are enough)
+- [x] next-sitemap: not needed, removed (native `src/app/sitemap.ts` and `robots.ts` are used)
+- [x] Configure base layout
+- [x] Add global styles
+- [x] Create reusable UI components
+- [x] Confirm mobile layout works
 
 ---
 
@@ -35,16 +38,16 @@ Main demo goal:
 
 Homepage sections:
 
-- [ ] Header
-- [ ] Hero section
-- [ ] Main service cards
-- [ ] Why choose us section
-- [ ] Istanbul European Side service area section
-- [ ] Process section
-- [ ] FAQ section
-- [ ] Google Maps / address section
-- [ ] WhatsApp CTA section
-- [ ] Footer
+- [x] Header
+- [x] Hero section
+- [x] Main service cards
+- [x] Why choose us section
+- [x] Service area section (all of Istanbul, both sides; store in Beyoğlu)
+- [x] Process section
+- [x] FAQ section
+- [x] Google Maps / address section
+- [x] WhatsApp CTA section
+- [x] Footer
 
 Hero must communicate:
 
@@ -54,16 +57,16 @@ Hero must communicate:
 
 ## Sprint 3 - SEO Foundation
 
-- [ ] Add homepage metadata
-- [ ] Add Open Graph metadata
-- [ ] Add canonical URL setup
-- [ ] Add LocalBusiness schema
-- [ ] Add Organization schema
-- [ ] Add FAQ schema
-- [ ] Add robots.txt
-- [ ] Add sitemap.xml
-- [ ] Add proper heading structure
-- [ ] Add image alt text rules
+- [x] Add homepage metadata
+- [x] Add Open Graph metadata
+- [x] Add canonical URL setup
+- [x] Add LocalBusiness schema
+- [x] Add Organization schema
+- [x] Add FAQ schema
+- [x] Add robots.txt
+- [x] Add sitemap.xml
+- [x] Add proper heading structure
+- [x] Add image alt text rules
 - [ ] Check Lighthouse SEO score
 
 ---
@@ -72,39 +75,39 @@ Hero must communicate:
 
 Create pages:
 
-- [ ] Telefon Tamiri
-- [ ] Bilgisayar Tamiri
-- [ ] Kamera Sistemleri
-- [ ] Uydu Sistemleri
-- [ ] Elektrik ve İnternet Hizmetleri
-- [ ] Ürünler
+- [x] Telefon Tamiri
+- [x] Bilgisayar Tamiri
+- [x] Kamera Sistemleri
+- [x] Uydu Sistemleri
+- [x] Elektrik ve İnternet Hizmetleri
+- [x] Ürünler
 
 Each service page must include:
 
-- [ ] H1
-- [ ] Short intro
-- [ ] Common problems
-- [ ] Process
-- [ ] Why choose us
-- [ ] Service area
-- [ ] FAQ
-- [ ] WhatsApp CTA
-- [ ] SEO metadata
-- [ ] Service schema
+- [x] H1
+- [x] Short intro
+- [x] Common problems
+- [x] Process
+- [x] Why choose us
+- [x] Service area
+- [x] FAQ
+- [x] WhatsApp CTA
+- [x] SEO metadata
+- [x] Service schema
 
 ---
 
 ## Sprint 5 - Contact and Trust
 
-- [ ] Contact page
-- [ ] Google Maps embed
-- [ ] Address
-- [ ] Phone / WhatsApp
-- [ ] Working hours
-- [ ] Directions button
-- [ ] Google review CTA
-- [ ] Social media links
-- [ ] Footer NAP consistency
+- [x] Contact page
+- [x] Google Maps embed
+- [x] Address
+- [x] Phone / WhatsApp
+- [x] Working hours
+- [x] Directions button
+- [x] Google review CTA
+- [x] Social media links
+- [x] Footer NAP consistency
 
 ---
 
@@ -116,13 +119,13 @@ Make it easy for customers to leave Google reviews.
 
 Tasks:
 
-- [ ] Get direct Google review link
+- [x] Get direct Google review link
 - [ ] Generate QR code
 - [ ] Create printable review card
-- [ ] Create WhatsApp review message
-- [ ] Add review CTA to website
-- [ ] Add review link to footer
-- [ ] Add review link to contact page
+- [x] Create WhatsApp review message
+- [x] Add review CTA to website
+- [x] Add review link to footer
+- [x] Add review link to contact page
 
 Printable card text:
 
@@ -132,14 +135,14 @@ Printable card text:
 
 ## Sprint 7 - Deploy
 
-- [ ] Deploy to Vercel or Netlify
-- [ ] Test mobile
-- [ ] Test desktop
-- [ ] Test WhatsApp buttons
-- [ ] Test contact links
-- [ ] Test Google Maps
-- [ ] Test metadata
-- [ ] Test sitemap
+- [x] Deploy to Vercel or Netlify
+- [x] Test mobile
+- [x] Test desktop
+- [x] Test WhatsApp buttons
+- [x] Test contact links
+- [x] Test Google Maps
+- [x] Test metadata
+- [x] Test sitemap
 - [ ] Check Lighthouse
 - [ ] Send demo link to business owner
 
@@ -147,11 +150,14 @@ Printable card text:
 
 ## Sprint 8 - After Launch
 
+- [ ] Buy the real domain, connect it on Vercel, update `NEXT_PUBLIC_SITE_URL`
+- [ ] Update the website field in Google Business Profile with the real domain
 - [ ] Connect Google Analytics
 - [ ] Connect Google Search Console
 - [ ] Submit sitemap
-- [ ] Connect Google Business Profile if access is granted
-- [ ] Add real photos
-- [ ] Add business phone number
-- [ ] Add final working hours
+- [x] Align site with Google Business Profile (service area İstanbul, hours, phone, Instagram; category change is under Google review)
+- [x] Add real photos (store, products, satellite)
+- [ ] Add real job photos for camera, electrical/internet and computer services
+- [x] Add business phone number
+- [x] Add final working hours
 - [ ] Review first SEO performance after indexing

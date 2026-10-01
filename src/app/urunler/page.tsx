@@ -17,9 +17,9 @@ const breadcrumbItems = [
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: "Ürünler ve Aksesuarlar Beyoğlu",
+    title: "Ürünler ve Aksesuarlar",
     description:
-      "Kılınç Teknomarket'te uydu ve anten ürünleri, telefon aksesuarları, powerbank, hoparlör, kulaklık, şarj aleti, TV kumandası, elektronik ürünler ve küçük ev aletleri bulabilirsiniz. Stok durumu için WhatsApp'tan yazın.",
+      "Uydu ve anten ürünleri, telefon aksesuarları, şarj aleti, kablo, powerbank ve elektronik ürünler Beyoğlu'ndaki mağazamızda. Stok durumu için WhatsApp'tan yazın.",
     path: "/urunler",
   });
 }

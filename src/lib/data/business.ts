@@ -17,7 +17,7 @@ const dailyHours = { opens: "08:00", closes: "21:00" }
 export const business = {
   name: "Kılınç Teknomarket",
   description:
-    "Kılınç Teknomarket; uydu ve çanak anten kurulumu, TV, telefon ve bilgisayar teknik servisi, kamera sistemleri, elektrik-internet arızaları ve teknoloji ürünleri için Beyoğlu merkezli güvenilir çözüm noktasıdır.",
+    "Kılınç Teknomarket, İstanbul genelinde uydu ve çanak anten kurulumu, kamera sistemleri, elektrik ve internet arıza servisi sunar. Beyoğlu'ndaki mağazamızda telefon ve bilgisayar tamiri ile teknoloji ürünleri satışı yapılır.",
 
   address: {
     streetAddress: "Camiikebir, Kızılay Meydanı Cd. No:9",
@@ -57,7 +57,7 @@ export const business = {
 
   // Google Business Profile "yorum bırak" kısayol linki. /yorum-birak
   // sayfası ve tüm "Google'da Yorum Yap" CTA'ları bu değeri kullanır.
-  googleReviewUrl: "https://share.google/nyQurN7kzNhmfyfpw" as string | null,
+  googleReviewUrl: "https://g.page/r/CUzsMPTtvl2HEBM/review" as string | null,
 
   // Instagram profil linki. Organization schema'daki "sameAs" alanı için
   // kullanılır.
@@ -71,17 +71,18 @@ export const business = {
   // butonu bu değeri kullanır (bkz. getGoogleMapsSearchUrl).
   googleMapsUrl: "https://maps.app.goo.gl/vqFHJrebvPBjT3jdA" as string | null,
 
-  serviceAreas: {
-    primary: [
-      "Beyoğlu",
-      "Kasımpaşa",
-      "Şişli",
-      "Beşiktaş",
-      "Fatih",
-      "Kağıthane",
-      "Eyüpsultan",
-    ],
-    broad: "İstanbul Avrupa Yakası",
+  // Google işletme kaydının kimlikleri. Tahmin değildir: Place ID, resmi yorum
+  // linkinin (googleReviewUrl) yönlendirdiği adresten; CID ise googleMapsUrl'in
+  // açtığı yer kaydından alınmıştır. Harita gömme ve yol tarifi linkleri adres
+  // araması yerine doğrudan bu kaydı gösterir.
+  googlePlaceId: "ChIJK-_wXYu5yhQRTOww9O2-XYc" as string | null,
+  googleCid: "9754162297167735884" as string | null,
+
+  // Fiziksel mağaza Beyoğlu'nda (bkz. address); saha hizmetleri ise İstanbul
+  // genelinde, iki yakada da verilir. İlçe listesi bilinçli olarak tutulmaz.
+  serviceArea: {
+    city: "İstanbul",
+    sides: ["Avrupa Yakası", "Anadolu Yakası"],
   },
 
   whatsappDefaultMessage:
@@ -133,12 +134,17 @@ export function getGoogleMapsSearchUrl() {
 }
 
 export function getGoogleMapsDirectionsUrl() {
-  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-    business.fullAddress
-  )}`
+  const destination = encodeURIComponent(`${business.name}, ${business.fullAddress}`)
+  const placeId = business.googlePlaceId
+    ? `&destination_place_id=${business.googlePlaceId}`
+    : ""
+  return `https://www.google.com/maps/dir/?api=1&destination=${destination}${placeId}`
 }
 
 export function getGoogleMapsEmbedUrl() {
+  if (business.googleCid) {
+    return `https://www.google.com/maps?cid=${business.googleCid}&output=embed`
+  }
   return `https://www.google.com/maps?q=${encodeURIComponent(
     business.fullAddress
   )}&output=embed`

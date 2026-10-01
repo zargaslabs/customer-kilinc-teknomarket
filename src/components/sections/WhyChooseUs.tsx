@@ -29,12 +29,12 @@ const reasons = [
   {
     icon: MessageCircle,
     title: "WhatsApp Üzerinden Hızlı İletişim",
-    description: "Arıza fotoğrafınızı gönderin, ön bilgiyi dakikalar içinde WhatsApp'tan alın.",
+    description: "Arıza fotoğrafınızı gönderin, ön bilgiyi WhatsApp üzerinden hızlıca alın.",
   },
   {
     icon: Truck,
     title: "Yerinde Kurulum, Mağazada Tamir",
-    description: "Uydu, anten ve kamera sistemleri adresinizde kurulur, cihaz tamirleri mağazada yapılır.",
+    description: "Uydu, anten ve kamera sistemleri İstanbul genelinde adresinizde kurulur, cihaz tamirleri Beyoğlu'ndaki mağazamızda yapılır.",
   },
   {
     icon: Store,

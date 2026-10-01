@@ -28,8 +28,10 @@ export function localBusinessSchema() {
       postalCode: business.address.postalCode,
       addressCountry: business.address.addressCountry,
     },
-    areaServed: [...business.serviceAreas.primary, business.serviceAreas.broad],
+    areaServed: { "@type": "City", name: business.serviceArea.city },
     ...(business.phone && { telephone: `+${business.phone}` }),
+    ...(business.googleMapsUrl && { hasMap: business.googleMapsUrl }),
+    ...(business.instagramUrl && { sameAs: [business.instagramUrl] }),
     ...(business.geo && {
       geo: {
         "@type": "GeoCoordinates",

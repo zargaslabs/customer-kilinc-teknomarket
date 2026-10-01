@@ -15,7 +15,7 @@ type FAQSectionProps = {
 export function FAQSection({
   items,
   heading = "Sıkça Sorulan Sorular",
-  intro = "Beyoğlu, Kasımpaşa ve İstanbul Avrupa Yakası'ndaki müşterilerimizin telefon tamiri, kamera sistemi ve uydu kurulumu hakkında en çok sorduğu sorular.",
+  intro = "Uydu ve çanak anten kurulumu, kamera sistemi ve teknik servis hakkında müşterilerimizin en çok sorduğu sorular.",
 }: FAQSectionProps) {
   return (
     <section id="sss" className="scroll-mt-16 bg-muted/40 py-20">

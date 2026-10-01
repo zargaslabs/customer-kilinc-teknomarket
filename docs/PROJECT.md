@@ -87,24 +87,14 @@ Technology products, technical service, satellite installation and security came
 
 ## Service Area
 
-Primary area:
-
-- Beyoğlu
-- Kasımpaşa
-- Şişli
-- Beşiktaş
-- Fatih
-- Kağıthane
-- Eyüpsultan
-
-Secondary area:
-
-- Istanbul European Side
+- Physical store: Beyoğlu (the only location).
+- Field services (satellite/antenna, camera, electrical, internet): all of Istanbul, European Side and Anatolian Side.
+- Phone/computer repair and product sales: in the Beyoğlu store.
 
 Important note:
 
-Do not create separate district pages for every district in the MVP.  
-Mention Istanbul European Side naturally inside relevant service pages.
+Do not create separate district pages and do not list districts one after another.
+Use "İstanbul genelinde" and "Avrupa Yakası ve Anadolu Yakası" naturally.
 
 ---
 

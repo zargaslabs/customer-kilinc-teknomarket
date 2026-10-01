@@ -17,74 +17,62 @@ npx eslint .
 npm run build
 ```
 
+## Mevcut Durum
+
+- Site Vercel'de yayında: https://customer-kilinc-teknomarket.vercel.app
+  (geçici adres; gerçek alan adı henüz satın alınmadı).
+- 10 sayfa: `/`, 5 hizmet sayfası, `/urunler`, `/hakkimizda`, `/iletisim`,
+  `/yorum-birak` (`noindex`, sitemap dışı).
+- Konumlandırma: fiziksel mağaza Beyoğlu'nda, saha hizmetleri İstanbul
+  genelinde (Avrupa Yakası ve Anadolu Yakası). İlçe sayfası yok.
+- Hizmet önceliği: uydu ve çanak anten → kamera, elektrik-internet → telefon
+  ve bilgisayar tamiri → ürün satışı.
+- İşletme verileri (`src/lib/data/business.ts`) gerçek: telefon, WhatsApp,
+  adres, çalışma saatleri, koordinat, Instagram, Google Maps kaydı, resmi
+  Google yorum linki, Place ID ve CID.
+- Harita gömme ve yol tarifi doğrudan Google işletme kaydını gösterir.
+- Open Graph görseli: `public/images/og/kilinc-teknomarket-og.jpg` (1200x630).
+
 ## Ortam Değişkenleri
-
-`.env.example` dosyasını `.env.local` olarak kopyalayın:
-
-```bash
-cp .env.example .env.local
-```
 
 | Değişken | Açıklama |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Sitenin canlı domain'i. Canonical URL, Open Graph/Twitter metadata, `sitemap.xml` ve `robots.txt` bu değeri kullanır (bkz. `src/lib/seo.ts`). |
+| `NEXT_PUBLIC_SITE_URL` | Sitenin canlı adresi. Canonical URL, Open Graph/Twitter metadata, JSON-LD, `sitemap.xml` ve `robots.txt` bu değeri kullanır (bkz. `src/lib/seo.ts`). |
 
-## ⚠️ Canlıya Almadan Önce — Tek Blokaj: Domain
+Vercel'de şu an geçici `vercel.app` adresine ayarlıdır. Yerelde `.env.example`
+dosyasını `.env.local` olarak kopyalayabilirsiniz.
 
-Site içeriği ve işletme verileri (telefon, WhatsApp, çalışma saatleri, Google
-Maps, Google Review, Instagram) **tamamlandı**. Canlıya almadan önce yapılması
-gereken tek şey **gerçek domain'i bağlamak**:
+## Alan Adı Bağlanınca Yapılacaklar
 
-`src/lib/seo.ts` içindeki `siteUrl`, `NEXT_PUBLIC_SITE_URL` env değişkeni set
-edilmezse `https://www.kilinc-teknomarket.com` placeholder'ına düşer. Bu,
-geliştirmeyi engellemeyen bir tercih ama **canlıya almadan önce mutlaka gerçek
-domain ile değiştirilmelidir** — aksi halde canonical URL'ler, Open Graph
-linkleri ve sitemap yanlış domain'i işaret eder.
+Gerçek alan adı **henüz alınmadı**. `src/lib/seo.ts` içindeki yedek değer
+(`https://www.kilinc-teknomarket.com`) yalnızca env değişkeni yokken kullanılan
+bir yer tutucudur.
 
-Yapılması gereken:
+1. Alan adını Vercel projesine bağlayın (www / çıplak alan adı yönlendirmesi
+   dahil).
+2. Vercel'de `NEXT_PUBLIC_SITE_URL` değerini gerçek alan adıyla güncelleyip
+   yeniden deploy edin.
+3. `src/lib/seo.ts` içindeki yedek değeri ve `.env.example` dosyasını aynı
+   alan adıyla güncelleyin.
+4. `/sitemap.xml`, `/robots.txt`, canonical etiketleri ve JSON-LD `url`
+   alanlarının yeni alan adını gösterdiğini kontrol edin.
+5. Google Search Console'a alan adını ekleyin, doğrulayın, sitemap gönderin.
+6. Google İşletme Profili'ndeki web sitesi alanını yeni alan adıyla güncelleyin.
+7. İstenirse Google Analytics (GA4) bağlayın.
 
-1. Gerçek domain'i Vercel'de (veya kullanılan platformda) bu projeye bağlayın.
-2. Deploy platformunda `NEXT_PUBLIC_SITE_URL` env değişkenini gerçek domain ile
-   set edin (örn. `https://www.kilinc-teknomarket.com`).
-3. `npm run build` sonrası `/sitemap.xml` ve sayfa kaynağındaki
-   `<link rel="canonical">` etiketlerinin doğru domain'i gösterdiğini kontrol
-   edin.
+## Bekleyen İçerik
 
-### Opsiyonel: kalan tek veri alanı
-
-`src/lib/data/business.ts` içinde `geo` (enlem/boylam) hâlâ `null`. Google
-Business Profile'dan alınıp girilirse LocalBusiness schema'ya `geo`
-koordinatı eklenir — SEO açısından faydalı ama zorunlu değil, site bu alan
-olmadan da tam işlevsel.
-
-## Deploy
-
-Bu proje [Vercel](https://vercel.com/new) için hazırlanmıştır:
-
-1. Repository'yi Vercel'e bağlayın.
-2. `NEXT_PUBLIC_SITE_URL` env değişkenini Production/Preview için ayarlayın.
-3. Deploy edin.
-4. Deploy sonrası: `/sitemap.xml`, `/robots.txt`, ve birkaç sayfanın
-   `<link rel="canonical">` etiketini gerçek domain ile kontrol edin.
-5. Google Search Console'a domain'i ekleyip sitemap'i submit edin (sitemap
-   9 sayfa içerir; `/yorum-birak` bilinçli olarak `noindex` ve sitemap dışı
-   tutulmuştur).
-
-## Sprint 7B — Deploy Öncesi Kalite Kontrolü (tamamlandı)
-
-Tüm 10 sayfa (`/`, 5 servis sayfası, `/urunler`, `/hakkimizda`, `/iletisim`,
-`/yorum-birak`) tek tek denetlendi: her sayfada tek H1, benzersiz
-title/description/canonical/OpenGraph/Twitter metadata, doğru JSON-LD
-(Organization, LocalBusiness, Service, BreadcrumbList, FAQPage). Tüm CTA'lar
-(WhatsApp, Hemen Ara, Google'da Aç, Yol Tarifi, Google Yorum, Instagram)
-gerçek tıklama ile test edildi. Playwright ile masaüstü + mobilde görsel
-kontrol ve konsol hatası taraması yapıldı — hiçbir sayfada yatay taşma veya
-konsol hatası yok.
+- Kamera, elektrik-internet ve bilgisayar hizmetleri için gerçek iş
+  fotoğrafları (şu an mağaza fotoğrafları kullanılıyor).
+- `public/images/logos/kartvizit.jpeg`, `public/images/logos/qr card.jpeg`,
+  `public/images/store/kilinc-teknomarket-tabela.png` ve
+  `public/images/store/kilinc-teknomarket-vitrin-eski.png` kodda
+  kullanılmıyor; müşteri kaynağı oldukları için silinmedi.
 
 ## Yapı
 
 - Next.js App Router + TypeScript + Tailwind CSS + shadcn/ui
 - Veri katmanı: `src/lib/data/` (business, services, products, faq — tek
-  kaynak, TODO'lar veri eksikliklerini işaretler)
+  kaynak)
 - SEO: `src/lib/seo.ts` (metadata helper) + `src/lib/schema/` (JSON-LD
   builder'lar) + `src/app/sitemap.ts` + `src/app/robots.ts`
