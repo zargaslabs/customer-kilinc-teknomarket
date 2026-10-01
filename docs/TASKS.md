@@ -2,10 +2,9 @@
 
 ## Current Status (October 2026)
 
-The site is built and live on a temporary Vercel address
-(https://customer-kilinc-teknomarket.vercel.app). Content uses real business
-data. The real domain has not been purchased yet; the remaining open items are
-in Sprint 6, Sprint 7 and Sprint 8.
+The site is live on its production domain: https://www.kilincteknomarket.com.
+Content uses real business data. The remaining open items are in Sprint 6,
+Sprint 7 and Sprint 8.
 
 Original demo goal, kept for reference:
 
@@ -126,6 +125,7 @@ Make it easy for customers to leave Google reviews.
 Tasks:
 
 - [x] Get direct Google review link
+- [x] Add short `/yorum` redirect to the official Google review link (for QR / NFC cards)
 - [ ] Generate QR code
 - [ ] Create printable review card
 - [x] Create WhatsApp review message
@@ -156,7 +156,7 @@ Printable card text:
 
 ## Sprint 8 - After Launch
 
-- [ ] Buy the real domain, connect it on Vercel, update `NEXT_PUBLIC_SITE_URL`
+- [x] Buy the real domain, connect it on Vercel, update `NEXT_PUBLIC_SITE_URL` (kilincteknomarket.com)
 - [ ] Update the website field in Google Business Profile with the real domain
 - [ ] Connect Google Analytics
 - [ ] Connect Google Search Console
