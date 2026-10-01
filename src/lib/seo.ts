@@ -2,11 +2,11 @@ import type { Metadata } from "next"
 
 import { business } from "@/lib/data/business"
 
-// TODO: Gerçek alan adı satın alınıp yayına alınınca NEXT_PUBLIC_SITE_URL env
-// değişkeni ile (veya bu placeholder'ı değiştirerek) güncellenecek. Bu değer
-// metadataBase, canonical URL'ler ve Open Graph linkleri için tek kaynaktır.
+// Sitenin gerçek alan adı. NEXT_PUBLIC_SITE_URL env değişkeni varsa o kullanılır
+// (ör. önizleme ortamları). Bu değer metadataBase, canonical URL'ler, JSON-LD,
+// sitemap ve Open Graph linkleri için tek kaynaktır.
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.kilinc-teknomarket.com"
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.kilincteknomarket.com"
 ).replace(/\/$/, "")
 
 export const siteConfig = {

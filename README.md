@@ -20,7 +20,8 @@ npm run build
 ## Mevcut Durum
 
 - Site Vercel'de yayında: https://customer-kilinc-teknomarket.vercel.app
-  (geçici adres; gerçek alan adı henüz satın alınmadı).
+  (geçici adres). Gerçek alan adı `kilincteknomarket.com` alındı; bağlama
+  adımları aşağıda.
 - 13 sayfa: `/`, 5 hizmet sayfası, 3 uydu alt hizmet sayfası, `/urunler`, `/hakkimizda`, `/iletisim`,
   `/yorum-birak` (`noindex`, sitemap dışı).
 - Konumlandırma: fiziksel mağaza Beyoğlu'nda, saha hizmetleri İstanbul
@@ -39,26 +40,29 @@ npm run build
 | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Sitenin canlı adresi. Canonical URL, Open Graph/Twitter metadata, JSON-LD, `sitemap.xml` ve `robots.txt` bu değeri kullanır (bkz. `src/lib/seo.ts`). |
 
-Vercel'de şu an geçici `vercel.app` adresine ayarlıdır. Yerelde `.env.example`
+Alan adı bağlanana kadar Vercel'de geçici `vercel.app` adresine ayarlıdır. Yerelde `.env.example`
 dosyasını `.env.local` olarak kopyalayabilirsiniz.
 
-## Alan Adı Bağlanınca Yapılacaklar
+## Alan Adı
 
-Gerçek alan adı **henüz alınmadı**. `src/lib/seo.ts` içindeki yedek değer
-(`https://www.kilinc-teknomarket.com`) yalnızca env değişkeni yokken kullanılan
-bir yer tutucudur.
+Gerçek alan adı: `kilincteknomarket.com` (Cloudflare üzerinden alındı). Ana
+adres `https://www.kilincteknomarket.com`; çıplak alan adı buna yönlenir.
+`src/lib/seo.ts` içindeki varsayılan değer de budur.
 
-1. Alan adını Vercel projesine bağlayın (www / çıplak alan adı yönlendirmesi
-   dahil).
-2. Vercel'de `NEXT_PUBLIC_SITE_URL` değerini gerçek alan adıyla güncelleyip
-   yeniden deploy edin.
-3. `src/lib/seo.ts` içindeki yedek değeri ve `.env.example` dosyasını aynı
-   alan adıyla güncelleyin.
+Yayına alma adımları:
+
+1. Vercel projesinde Settings → Domains altına `kilincteknomarket.com` ve
+   `www.kilincteknomarket.com` eklenir; `www` ana adres seçilir.
+2. Cloudflare DNS'e Vercel'in gösterdiği kayıtlar girilir (proxy kapalı,
+   "DNS only").
+3. Vercel'de `NEXT_PUBLIC_SITE_URL` değeri
+   `https://www.kilincteknomarket.com` yapılır (veya silinir) ve yeniden
+   deploy edilir.
 4. `/sitemap.xml`, `/robots.txt`, canonical etiketleri ve JSON-LD `url`
-   alanlarının yeni alan adını gösterdiğini kontrol edin.
-5. Google Search Console'a alan adını ekleyin, doğrulayın, sitemap gönderin.
-6. Google İşletme Profili'ndeki web sitesi alanını yeni alan adıyla güncelleyin.
-7. İstenirse Google Analytics (GA4) bağlayın.
+   alanlarının yeni alan adını gösterdiği kontrol edilir.
+5. Google Search Console'a alan adı eklenir, doğrulanır, sitemap gönderilir.
+6. Google İşletme Profili'ndeki web sitesi alanı güncellenir.
+7. İstenirse Google Analytics (GA4) bağlanır.
 
 ## Bekleyen İçerik
 
